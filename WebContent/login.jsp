@@ -8,10 +8,10 @@
 </head>
 <body>
 <h1>Login</h1>
-<form action="/BasicSpringMVC/submitAdmissionForm.html" method="post">
-Email : <input type="text" name="#">
+<form action="/gdgmcq/LoginController.html" method="post">
+Email : <input type="text" name="email">
 <br>
-Password : <input type="text" name="#">
+Password : <input type="text" name="password">
 <br>
 <input type="submit" value="SUBMIT">
 </form>

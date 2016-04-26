@@ -9,23 +9,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Entity
 public class Registration {
-@Id
-@GeneratedValue(strategy=GenerationType.AUTO)
-private int id;
+
 private String name;
 private String college;
 private String branch;
 private String rollno;
 private String labno;
 private String contact;
+@Id
 private String email;
 private String password;
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
+
 public String getName() {
 	return name;
 }

@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="register.jsp"><input type="submit" value="REGISTER" /></a>
-<a href="login.jsp"><input type="submit" value="LOGIN" /></a>
+<h1>SORRY bitch !!</h1>
 </body>
 </html>

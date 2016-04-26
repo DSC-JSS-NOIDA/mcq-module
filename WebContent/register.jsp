@@ -25,7 +25,7 @@ Contact : <input type="text" name="contact">
 <br>
 Password : <input type="password" name="password">
 <br>
-<!-- Re-Password : <input type="text" name="repassword"> -->
+Re-Password : <input type="password" name="repassword">
 <br>
 <input type="submit" value="SUBMIT">
 </form>
