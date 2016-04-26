@@ -23,7 +23,7 @@ Lab No. : <input type="text" name="labno">
 <br>
 Contact : <input type="text" name="contact">
 <br>
-Password : <input type="text" name="password">
+Password : <input type="password" name="password">
 <br>
 <!-- Re-Password : <input type="text" name="repassword"> -->
 <br>
