@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>YES bitch !!!</h1>
+<h2>This is rules/regulations page</h2>
 </body>
 </html>
