@@ -46,8 +46,13 @@ public class RegistrationLoginController {
 		ModelAndView model;
 		Session session = sessionFactory.openSession();
 		regi = (Registration) session.get(Registration.class, email);
+		if(regi!=null)
+		{
 		if (regi.getPassword().equals(password))
 			model = new ModelAndView("loginsuccess");
+		else
+			model = new ModelAndView("tester");
+		}
 		else
 			model = new ModelAndView("tester");
 		return model;
