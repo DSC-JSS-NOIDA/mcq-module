@@ -5,30 +5,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+function formValidation()
+{
+	var pass1 = document.getElementById("pass1").value;
+	var pass2 = document.getElementById("pass2").value;
+	
+	if(pass1 != pass2)
+	{
+		
+		alert('password not match');
+		return false
+	}
+	alert('success');
+	return true;
+}
+</script>
 </head>
 <body>
 <h1>Register</h1>
-<form action="/gdgmcq/RegistrationController.html" method="post">
-Name : <input type="text" name="name" />
+<form action="/gdgmcq/RegistrationController.html" method="post" onsubmit="return formValidation();">
+Name : <input type="text" name="name"  required />
 <br>
-College : <input type="text" name="college" />
+College : <input type="text" name="college" required />
 <br>
-Branch : <input type="text" name="branch" />
+Branch : <input type="text" name="branch" required />
 <br>
-Email : <input type="text" name="email">
+Email : <input type="email" name="email" required  />
 <br>
-Roll No : <input type="text" name="rollno">
+Roll No : <input type="text" name="rollno" required />
 <br>
-Lab No. : <input type="text" name="labno">
+Lab No. : <input type="text" name="labno" required />
 <br>
-Contact : <input type="text" name="contact">
+Contact : <input type="text" name="contact" required />
 <br>
-Password : <input type="password" name="password">
+Password : <input type="password" name="password" id="pass1" required />
 <br>
-Re-Password : <input type="password" name="repassword">
+Re-Password : <input type="password" name="repassword" id="pass2" required />
 <br>
-<input type="submit" value="SUBMIT">
+<input type="submit" value="SUBMIT" name="submit">
 </form>
+
+<p id="demo"></p>
 
 </body>
 </html>
