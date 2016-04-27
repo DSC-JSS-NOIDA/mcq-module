@@ -12,7 +12,7 @@
 		<form action="/gdgmcq/LoginController.html" method="post">
 		Email : <input type="text" name="email" required />
 		<br>
-		Password : <input type="text" name="password" required / >
+		Password : <input type="password" name="password" required / >
 		<br>
 		<input type="submit" value="SUBMIT">
 		</form>

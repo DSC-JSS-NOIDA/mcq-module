@@ -9,5 +9,8 @@
 <body>
 <h1>YES bitch !!!</h1>
 <h2>This is rules/regulations page</h2>
+<form action="/gdgmcq/QuestionController.html" method="post">
+<button>START</button>
+</form>
 </body>
 </html>
