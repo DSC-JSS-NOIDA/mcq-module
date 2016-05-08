@@ -19,7 +19,6 @@
 			{
 				var pass1 = document.getElementById("pass1").value;
 				var pass2 = document.getElementById("pass2").value;
-				
 				if(pass1 != pass2)
 				{
 					
@@ -51,12 +50,12 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">email</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="email">
+                                              <input id="icon_prefix" type="text" class="validate" name="email" required />
                                               <label for="icon_prefix">Email</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock</i>
-                                              <input id="password" type="password" class="validate" name="password">
+                                              <input id="password" type="password" class="validate" name="password" required />
                                               <label for="icon_telephone">Password</label>
                                             </div>
                                         </div>
@@ -78,48 +77,48 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">perm_identity</i>
-                                                <input id="icon_prefix" type="text" class="validate" name="name">
+                                                <input id="icon_prefix" type="text" class="validate" name="name" required />
                                                 <label for="icon_prefix">Name</label>
                                             </div>
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">email</i>
-                                                <input id="email" type="email" class="validate" name="email">
+                                                <input id="email" type="email" class="validate" name="email" required />
                                                 <label for="email">Email</label>
                                             </div>
                                        		<div class="input-field col s12">
                                               <i class="material-icons prefix">school</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="college">
+                                              <input id="icon_prefix" type="text" class="validate" name="college" required />
                                               <label for="icon_prefix">College</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">assignment</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="branch">
+                                              <input id="icon_prefix" type="text" class="validate" name="branch" required />
                                               <label for="icon_prefix">Trade</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">person_pin</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="rollno">
+                                              <input id="icon_prefix" type="text" class="validate" name="rollno" required />
                                               <label for="icon_prefix">Roll No</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">airplay</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="labno">
+                                              <input id="icon_prefix" type="text" class="validate" name="labno" required />
                                               <label for="icon_prefix">Lab Number</label>
                                             </div>
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">phone</i>
-                                                <input id="icon_telephone" type="tel" class="validate" name="contact">
+                                                <input id="icon_telephone" type="tel" class="validate" name="contact" required />
                                                 <label for="icon_telephone">Contact</label>
                                             </div>
                                             
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock_outline</i>
-                                              <input id="pass1" type="password" class="validate" name="password">
+                                              <input id="pass1" type="password" class="validate" name="password" required />
                                               <label for="icon_telephone">Password</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock</i>
-                                              <input id="pass2" type="password" class="validate" name="repassword">
+                                              <input id="pass2" type="password" class="validate" name="repassword" required />
                                               <label for="icon_telephone">Re Enter Password</label>
                                             </div>
                                         </div>
