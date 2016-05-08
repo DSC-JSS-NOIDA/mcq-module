@@ -78,33 +78,49 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">perm_identity</i>
-                                                <input id="icon_prefix" type="text" class="validate">
+                                                <input id="icon_prefix" type="text" class="validate" name="name">
                                                 <label for="icon_prefix">Name</label>
                                             </div>
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">email</i>
-                                                <input id="email" type="email" class="validate">
+                                                <input id="email" type="email" class="validate" name="email">
                                                 <label for="email">Email</label>
+                                            </div>
+                                       		<div class="input-field col s12">
+                                              <i class="material-icons prefix">school</i>
+                                              <input id="icon_prefix" type="text" class="validate" name="college">
+                                              <label for="icon_prefix">College</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                              <i class="material-icons prefix">assignment</i>
+                                              <input id="icon_prefix" type="text" class="validate" name="branch">
+                                              <label for="icon_prefix">Trade</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                              <i class="material-icons prefix">person_pin</i>
+                                              <input id="icon_prefix" type="text" class="validate" name="rollno">
+                                              <label for="icon_prefix">Roll No</label>
+                                            </div>
+                                            <div class="input-field col s12">
+                                              <i class="material-icons prefix">airplay</i>
+                                              <input id="icon_prefix" type="text" class="validate" name="labno">
+                                              <label for="icon_prefix">Lab Number</label>
                                             </div>
                                             <div class="input-field col s12">
                                                 <i class="material-icons prefix">phone</i>
-                                                <input id="icon_telephone" type="tel" class="validate">
-                                                <label for="icon_telephone">Telephone</label>
+                                                <input id="icon_telephone" type="tel" class="validate" name="contact">
+                                                <label for="icon_telephone">Contact</label>
                                             </div>
+                                            
                                             <div class="input-field col s12">
-                                              <i class="material-icons prefix">account_circle</i>
-                                              <input id="icon_prefix" type="text" class="validate">
-                                              <label for="icon_prefix">Username</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                              <i class="material-icons prefix">lock</i>
-                                              <input id="pass1" type="password" class="validate">
+                                              <i class="material-icons prefix">lock_outline</i>
+                                              <input id="pass1" type="password" class="validate" name="password">
                                               <label for="icon_telephone">Password</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock</i>
-                                              <input id="pass2" type="password" class="validate">
-                                              <label for="icon_telephone">Re enter Password</label>
+                                              <input id="pass2" type="password" class="validate" name="repassword">
+                                              <label for="icon_telephone">Re Enter Password</label>
                                             </div>
                                         </div>
                                         <input type="submit" value="SUBMIT" class="btn waves-effect waves-light" style="margin-left: 40%;">
