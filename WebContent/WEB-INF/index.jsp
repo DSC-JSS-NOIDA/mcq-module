@@ -50,13 +50,13 @@
                                     <form class="col s12" action="/gdgmcq/LoginController.html" method="post">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                              <i class="material-icons prefix">account_circle</i>
-                                              <input id="icon_prefix" type="text" class="validate">
-                                              <label for="icon_prefix">Username</label>
+                                              <i class="material-icons prefix">email</i>
+                                              <input id="icon_prefix" type="text" class="validate" name="email">
+                                              <label for="icon_prefix">Email</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock</i>
-                                              <input id="password" type="password" class="validate">
+                                              <input id="password" type="password" class="validate" name="password">
                                               <label for="icon_telephone">Password</label>
                                             </div>
                                         </div>
