@@ -7,16 +7,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".btn1").click(function(){
+        $("ul").hide();
+    });
+    $(".btn2").click(function(){
+        $("ul").show();
+    });
+});
+</script>
 </head>
 <body>
 <h1>SOLVE question bitch !!</h1>
 <!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
 <c:forEach var="questionlist" items="${ques}">
+<ul>
 <h2>${questionlist.question}</h2>
 <h4><input type="radio" value="a"> ${questionlist.option1}</h4> 
 <h4><input type="radio" value="b"> ${questionlist.option2}</h4> 
 <h4><input type="radio" value="c"> ${questionlist.option3}</h4> 
-<h4><input type="radio" value="d"> ${questionlist.option4}</h4> 
+<h4><input type="radio" value="d"> ${questionlist.option4}</h4> </ul>
+<button class="btn1">Hide</button>
+<button class="btn2">Show</button>
 </c:forEach>
 <input type="submit" value="SUBMIT SOLUTIONS">
  
