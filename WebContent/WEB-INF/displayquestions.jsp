@@ -21,7 +21,7 @@
 	<%int i=1; %>
 	<form id="form" action="/gdgmcq/SubmitSolution" method="post">
 	<div class="divs">
-		<c:forEach var="questionlist" items="${ques}">
+		<c:forEach var="questionlist" items="${ques}">ge
 			<% String nameid="ques"+Integer.toString(i);request.setAttribute("nameid", nameid);i++; %>
 			<div>
 				<h2>${questionlist.question}</h2>
