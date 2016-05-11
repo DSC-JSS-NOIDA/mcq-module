@@ -44,10 +44,10 @@
 			</div>
 		</c:forEach>
 	</div>
-	<button>
+	<button type="button">
 		<a id="prev">prev</a>
 	</button>
-	<button>
+	<button type="button">
 		<a id="next">next</a>
 	</button>
 	</br>
