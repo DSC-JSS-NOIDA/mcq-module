@@ -40,14 +40,22 @@ $(document).ready(function(){
 <body>
 <h1>SOLVE question bitch !!</h1>
 <!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
+<%int i=67; %>
 <div class="divs">
 <c:forEach var="questionlist" items="${ques}">
+
 <div>
 <h2>${questionlist.question}</h2>
-<h4><input type="radio" value="a" name="bb"> ${questionlist.option1}</h4> 
-<h4><input type="radio" value="b" name="bb"> ${questionlist.option2}</h4> 
-<h4><input type="radio" value="c" name="bb"> ${questionlist.option3}</h4> 
-<h4><input type="radio" value="d" name="bb"> ${questionlist.option4}</h4>
+<h4><input type="radio" value="a" name=${questionlist.option1}> ${questionlist.option1}</h4> 
+<h4><input type="radio" value="b" name=${questionlist.option1}> ${questionlist.option2}</h4> 
+<h4><input type="radio" value="c" name=${questionlist.option1}> ${questionlist.option3}</h4> 
+<h4><input type="radio" value="d" name=${questionlist.option1}> ${questionlist.option4}</h4>
+
+<h2>${questionlist.question}</h2>
+<h4><input type="radio" value="a" name="bbw"> ${questionlist.option1}</h4> 
+<h4><input type="radio" value="b" name="bbw"> ${questionlist.option2}</h4> 
+<h4><input type="radio" value="c" name="bbw"> ${questionlist.option3}</h4> 
+<h4><input type="radio" value="d" name="bbw"> ${questionlist.option4}</h4>
 </div>
 </c:forEach>
 </div>
