@@ -36,13 +36,13 @@ $(function(){
 });
 
 /*under observation*/
-/*function submitConfirm()
+function submitConfirm()
 {
-	alert('READY TO SUBMIT');
-	if(true)
+	if(confirm('READY TO SUBMIT'))
 		return true;
 	else
 		return false;
-}*/
+	
+}
 
 
