@@ -39,7 +39,7 @@ $(document).ready(function(){
 </head>
 <body>
 <h1>SOLVE question bitch !!</h1>
-<%int i=67; %>
+<%int i=1; %>
 <!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
 <div class="divs">
 <c:forEach var="questionlist" items="${ques}">
@@ -50,22 +50,15 @@ $(document).ready(function(){
 <h4><input type="radio" value="b" name=${nameid}> ${questionlist.option2}</h4> 
 <h4><input type="radio" value="c" name=${nameid}> ${questionlist.option3}</h4> 
 <h4><input type="radio" value="d" name=${nameid}> ${questionlist.option4}</h4>
-
-<h2>${questionlist.question}</h2>
-<h4><input type="radio" value="a" name="bbw"> ${questionlist.option1}</h4> 
-<h4><input type="radio" value="b" name="bbw"> ${questionlist.option2}</h4> 
-<h4><input type="radio" value="c" name="bbw"> ${questionlist.option3}</h4> 
-<h4><input type="radio" value="d" name="bbw"> ${questionlist.option4}</h4>
 </div>
 </c:forEach>
 </div>
 <button>
-<a id="next">next</a>
-</button>
-<button>
 <a id="prev">prev</a>
 </button>
-
+<button>
+<a id="next">next</a>
+</button>
 <input type="submit" value="SUBMIT SOLUTIONS">
  
 </body>
