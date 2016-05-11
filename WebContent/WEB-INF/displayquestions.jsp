@@ -19,9 +19,9 @@
 <body>
 	<h1>you better SOLVE question !!</h1>
 	<%int i=1; %>
-	<form id="form" action="/gdgmcq/SubmitSolution" method="post">
+	<form action="/gdgmcq/SubmitSolution" method="post" onsubmit="return submitConfirm();">
 	<div class="divs">
-		<c:forEach var="questionlist" items="${ques}">ge
+		<c:forEach var="questionlist" items="${ques}">
 			<% String nameid="ques"+Integer.toString(i);request.setAttribute("nameid", nameid);i++; %>
 			<div>
 				<h2>${questionlist.question}</h2>
@@ -50,6 +50,16 @@
 	<button>
 		<a id="next">next</a>
 	</button>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
+	</br>
 	</br>
 	</br>
 	<input type="submit" value="SUBMIT TEST" name="submit" />

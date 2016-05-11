@@ -35,4 +35,14 @@ $(function(){
     });
 });
 
+/*under observation*/
+/*function submitConfirm()
+{
+	alert('READY TO SUBMIT');
+	if(true)
+		return true;
+	else
+		return false;
+}*/
+
 
