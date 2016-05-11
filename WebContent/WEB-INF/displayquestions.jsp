@@ -39,17 +39,17 @@ $(document).ready(function(){
 </head>
 <body>
 <h1>SOLVE question bitch !!</h1>
-<!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
 <%int i=67; %>
+<!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
 <div class="divs">
 <c:forEach var="questionlist" items="${ques}">
-
+<% String nameid="ques"+Integer.toString(i);request.setAttribute("nameid", nameid);i++; %>
 <div>
 <h2>${questionlist.question}</h2>
-<h4><input type="radio" value="a" name=${questionlist.option1}> ${questionlist.option1}</h4> 
-<h4><input type="radio" value="b" name=${questionlist.option1}> ${questionlist.option2}</h4> 
-<h4><input type="radio" value="c" name=${questionlist.option1}> ${questionlist.option3}</h4> 
-<h4><input type="radio" value="d" name=${questionlist.option1}> ${questionlist.option4}</h4>
+<h4><input type="radio" value="a" name=${nameid}> ${questionlist.option1}</h4> 
+<h4><input type="radio" value="b" name=${nameid}> ${questionlist.option2}</h4> 
+<h4><input type="radio" value="c" name=${nameid}> ${questionlist.option3}</h4> 
+<h4><input type="radio" value="d" name=${nameid}> ${questionlist.option4}</h4>
 
 <h2>${questionlist.question}</h2>
 <h4><input type="radio" value="a" name="bbw"> ${questionlist.option1}</h4> 
