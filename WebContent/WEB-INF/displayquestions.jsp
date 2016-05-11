@@ -6,39 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="description" content="reverse clock plugin for jQuery.">
+            <meta name="keywords" content="jQuery, plugin, count down">
+<script type="text/javascript" src="static/js/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="static/js/jquery.countdownTimer.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/jquery.countdownTimer.css" />
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $(".divs div").each(function(e) {
-        if (e != 0)
-            $(this).hide();
-    });
-    
-    $("#next").click(function(){
-        if ($(".divs div:visible").next().length != 0)
-            $(".divs div:visible").next().show().prev().hide();
-        else {
-            $(".divs div:visible").hide();
-            $(".divs div:first").show();
-        }
-        return false;
-    });
-
-    $("#prev").click(function(){
-        if ($(".divs div:visible").prev().length != 0)
-            $(".divs div:visible").prev().show().next().hide();
-        else {
-            $(".divs div:visible").hide();
-            $(".divs div:last").show();
-        }
-        return false;
-    });
-});
-</script>
 </head>
 <body>
-<h1>SOLVE question bitch !!</h1>
+<h1>you better SOLVE question !!</h1>
 <%int i=1; %>
 <!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
 <div class="divs">
@@ -60,6 +36,29 @@ $(document).ready(function(){
 <a id="next">next</a>
 </button>
 <input type="submit" value="SUBMIT SOLUTIONS">
- 
+ <table style="border:0px;">
+                                <tr>
+                                    <td style="width:70px;text-align:center;">Hours</td>
+                                    <td style="width:60px;text-align:center;">Minutes</td>
+                                    <td style="width:70px;text-align:center;">Seconds</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><span id="hms_timer"></span></td><td>&nbsp;&nbsp;<button id="pauseBtnhms">Pause</button></td><td>&nbsp;&nbsp;<button id="stopBtnhms">Stop</button></td>
+                                </tr>
+                            </table>
+                            <script>
+                                $(function(){
+                                    $('#hms_timer').countdowntimer({
+                                        hours : 3,
+                                        minutes :10,
+                                        seconds : 10,
+                                        size : "lg",
+					pauseButton : "pauseBtnhms",
+					stopButton : "stopBtnhms"
+                                    });
+                                });
+                            </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="static/js/style.js"></script>
 </body>
 </html>

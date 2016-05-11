@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>YES bitch !!!</h1>
+<h1>Logged In  !!!</h1>
 <h2>This is rules/regulations page</h2>
 <form action="/gdgmcq/QuestionController.html" method="post">
 <button>START</button>
