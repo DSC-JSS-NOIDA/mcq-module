@@ -26,3 +26,15 @@ $(document).ready(function(){
 });
 
 
+$(function(){
+    $('#hms_timer').countdowntimer({
+        hours : 3,
+        minutes :10,
+        seconds : 10,
+        size : "lg",
+pauseButton : "pauseBtnhms",
+stopButton : "stopBtnhms"
+    });
+});
+
+
