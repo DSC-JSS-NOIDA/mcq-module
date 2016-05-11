@@ -10,11 +10,29 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".btn1").click(function(){
-        $("ul").hide();
+    $(".divs div").each(function(e) {
+        if (e != 0)
+            $(this).hide();
     });
-    $(".btn2").click(function(){
-        $("ul").show();
+    
+    $("#next").click(function(){
+        if ($(".divs div:visible").next().length != 0)
+            $(".divs div:visible").next().show().prev().hide();
+        else {
+            $(".divs div:visible").hide();
+            $(".divs div:first").show();
+        }
+        return false;
+    });
+
+    $("#prev").click(function(){
+        if ($(".divs div:visible").prev().length != 0)
+            $(".divs div:visible").prev().show().next().hide();
+        else {
+            $(".divs div:visible").hide();
+            $(".divs div:last").show();
+        }
+        return false;
     });
 });
 </script>
@@ -22,16 +40,24 @@ $(document).ready(function(){
 <body>
 <h1>SOLVE question bitch !!</h1>
 <!-- <form action="/gdgmcq/QuestionController.html" method="post"> -->
+<div class="divs">
 <c:forEach var="questionlist" items="${ques}">
-<ul>
+<div>
 <h2>${questionlist.question}</h2>
-<h4><input type="radio" value="a"> ${questionlist.option1}</h4> 
-<h4><input type="radio" value="b"> ${questionlist.option2}</h4> 
-<h4><input type="radio" value="c"> ${questionlist.option3}</h4> 
-<h4><input type="radio" value="d"> ${questionlist.option4}</h4> </ul>
-<button class="btn1">Hide</button>
-<button class="btn2">Show</button>
+<h4><input type="radio" value="a" name="bb"> ${questionlist.option1}</h4> 
+<h4><input type="radio" value="b" name="bb"> ${questionlist.option2}</h4> 
+<h4><input type="radio" value="c" name="bb"> ${questionlist.option3}</h4> 
+<h4><input type="radio" value="d" name="bb"> ${questionlist.option4}</h4>
+</div>
 </c:forEach>
+</div>
+<button>
+<a id="next">next</a>
+</button>
+<button>
+<a id="prev">prev</a>
+</button>
+
 <input type="submit" value="SUBMIT SOLUTIONS">
  
 </body>
