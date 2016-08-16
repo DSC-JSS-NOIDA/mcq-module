@@ -6,63 +6,79 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Repository;
-
+/**
+ * Entity set : Questions to be displayed. 
+ * @author Tilhari
+ *
+ */
 @Repository
 @Entity
-public class Questions
-{
+public class Questions {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer question_id;
 	private String question;
-	private String option1;
-	private String option2;
-	private String option3;
-	private String option4;
+	private String optionA;
+	private String optionB;
+	private String optionC;
+	private String optionD;
 	private String answer;
-	public Integer getId() {
-		return id;
+
+	public Integer getQuestion_id() {
+		return question_id;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+
+	public void setQuestion_id(Integer question_id) {
+		this.question_id = question_id;
 	}
+
 	public String getQuestion() {
 		return question;
 	}
+
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public String getOption1() {
-		return option1;
+
+	public String getOptionA() {
+		return optionA;
 	}
-	public void setOption1(String option1) {
-		this.option1 = option1;
+
+	public void setOptionA(String optionA) {
+		this.optionA = optionA;
 	}
-	public String getOption2() {
-		return option2;
+
+	public String getOptionB() {
+		return optionB;
 	}
-	public void setOption2(String option2) {
-		this.option2 = option2;
+
+	public void setOptionB(String optionB) {
+		this.optionB = optionB;
 	}
-	public String getOption3() {
-		return option3;
+
+	public String getOptionC() {
+		return optionC;
 	}
-	public void setOption3(String option3) {
-		this.option3 = option3;
+
+	public void setOptionC(String optionC) {
+		this.optionC = optionC;
 	}
-	public String getOption4() {
-		return option4;
+
+	public String getOptionD() {
+		return optionD;
 	}
-	public void setOption4(String option4) {
-		this.option4 = option4;
+
+	public void setOptionD(String optionD) {
+		this.optionD = optionD;
 	}
+
 	public String getAnswer() {
 		return answer;
 	}
+
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	
-	
+
 }
