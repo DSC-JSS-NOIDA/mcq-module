@@ -1,6 +1,6 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
     $(".divs div").each(function(e) {
-        if (e != 0)
+        if (e)
             $(this).hide();
     });
     
@@ -24,7 +24,7 @@ $(document).ready(function(){
         return false;
     });
 });
-
+*/
 
 $(function(){
     $('#hms_timer').countdowntimer({

@@ -1,4 +1,4 @@
-html { 
+#background_indexpage { 
 	background: url(../images/bg2.jpeg) no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -10,7 +10,6 @@ html {
 }
 #btn {
 	width: 70%;
-	background-color: black;
 	color: white;
 	font-size: 18px;
 	border: 2px white solid;
