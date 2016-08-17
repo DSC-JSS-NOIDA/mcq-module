@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	<h3>Because of unfair attempt your session is expired, click to
+	<h3>Because of unexpected event your session is expired, click to
 		return to index page.</h3>
 	<form action="/gdgmcq/index" method="get">
 		<input type="submit" value="Home page" />

@@ -37,16 +37,23 @@ public class SessionControlled {
 		 * In case reload/ back button is triggered while test is going on, jsp
 		 * Header(---) and following if block code will logout the participant.
 		 */
-		/*if (httpSession.getAttribute("key1") == null) {
+		if (httpSession.getAttribute("key1") == null) {
 			httpSession.invalidate();
 			return new ModelAndView("index_redirector");
-		}*/
+		}
 		httpSession.removeAttribute("key1");
 		Session session = sessionFactory.openSession();
 		List<Questions> ques = session.createCriteria(Questions.class).list();
 		ModelAndView model = new ModelAndView("displayquestions");
+		int myhr=0;
+		int mymin=2;
+		int mysec=0;
 		registration = (Registration) httpSession.getAttribute("SESSION");
 		model.addObject("sessionName", registration.getName());
+		model.addObject("sessionrollNo", registration.getRollno());
+		model.addObject("myhr", myhr);
+		model.addObject("mymin", mymin);
+		model.addObject("mysec", mysec);
 		model.addObject("ques", ques);
 		session.close();
 		return model;

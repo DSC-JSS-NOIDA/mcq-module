@@ -26,23 +26,17 @@
 });
 */
 
-$(function(){
-    $('#hms_timer').countdowntimer({
-        hours : 0,
-        minutes :1,
-        seconds : 0,
-        size : "lg",
-    });
-});
 
 /*under observation*/
 function submitConfirm()
 {
-	if(confirm('READY TO SUBMIT'))
+	if(confirm('Are you sure you want to submit your soutions and end the session...!'))
 		return true;
 	else
 		return false;
 	
 }
+
+
 
 

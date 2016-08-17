@@ -52,7 +52,7 @@ public class Commons {
 		session.save(registration);
 		session.getTransaction().commit();
 		session.close();
-		ModelAndView model = new ModelAndView("registrationsuccess");
+		ModelAndView model = new ModelAndView("index");
 		return model;
 	}
 

@@ -21,7 +21,7 @@ li.ui-state-processing a 			{ cursor: text; }
 .ui-tabs.ui-tabs-collapsible 
 .ui-tabs-nav li.ui-tabs-selected a  { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel 			{ padding: 20px; display: block; border-width: 0; background-color:white; 
-									  border: 1px solid grey; position: relative; min-height: 300px; font-size: 16px; }
+									  border: 1px solid grey; border-radius: 4px; position: relative; min-height: 300px; font-size: 16px; }
 .ui-tabs .ui-tabs-hide 				{ display: none !important; }
 
 

@@ -17,8 +17,7 @@
 	<h2>This is rules/regulations page</h2>
 	<form action="/gdgmcq/QuestionController.html" method="post">
 		<button>START</button>
-		
-		<input type="radio" value="D" name="D" />test
+
 	</form>
 </body>
 </html>

@@ -32,9 +32,10 @@
 	border-radius: 5px;
 }
 
+/* modified @ Tilhari */
 .size_md {
 	
-	font-size: 30px;
+	font-size: 25px;
 	border-width: 0px;
 	border-radius: 0px;
 }

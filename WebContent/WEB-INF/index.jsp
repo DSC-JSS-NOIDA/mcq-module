@@ -22,10 +22,10 @@
 				if(pass1 != pass2)
 				{
 					
-					alert('password not match');
+					alert('password not matched');
 					return false
 				}
-				alert('success');
+				alert('Your registration is successful, now you can login');
 				return true;
 			}
 		</script>

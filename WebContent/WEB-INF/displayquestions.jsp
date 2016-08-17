@@ -30,17 +30,15 @@
 
 <!--JS FOR TIMER -->
 <!-- <script type="text/javascript" src="static/js/jquery-2.0.3.js"></script> -->
-	<script type="text/javascript" src="static/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="static/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="static/js/jquery.countdownTimer.js"></script>
 <script src="static/js/style.js"></script>
 
-
-
 <!--JS FOR QUESTON NAVIGATOR  -->
-	
 
 <script type="text/javascript"
 	src="static/js/jquery-ui-1.7.custom.min.js"></script>
+
 
 <script type="text/javascript">
 	$(function() {
@@ -76,34 +74,34 @@
 
 	});
 </script>
+<script type="text/javascript">
+	function myFunction() {
+		alert("Time up !!!");
+		document.getElementById("myForm").submit();
+	}
+</script>
 
 </head>
 <body background="static/images/quesbg.jpg">
 	<div style="height: 90px" id="header_footer">
 		<img src="static/images/gdgjsslogoblue.png" class="left">
-		<div id="main" class="right">
-		<table style="border: 0px;	margin-top: 20px;" class="blue-grey darken-3">
-			<!-- <tr>
-				<td style="width: 70px; text-align: center;">Hours</td>
-				<td style="width: 60px; text-align: center;">Minutes</td>
-				<td style="width: 70px; text-align: center;">Seconds</td>
-			</tr> -->
-			<tr>
-				<td colspan="4"><span id="hms_timer" class="size_md"></span></td>
-			</tr>
-		</table>
-	</div> 
+		<div class="right blue-grey darken-3"
+			style="border-radius: 4px; margin-top: 20px; width: 150px; height: 60px;">
+			<div style="margin-top: 8px; margin-left: 14px;">
+				<span style="color: white; font-size: 12px;">HOUR : MINS :
+					SECS </span> </br> <span id="hms_timer" class="size_md"></span>
+			</div>
+		</div>
 	</div>
 
 
 	<%
 		int i = 1;
 	%>
-	<form action="/gdgmcq/SubmitSolution" method="post"
+	<form action="/gdgmcq/SubmitSolution" method="post" , id="myForm"
 		onsubmit="return submitConfirm();">
 		<div id="page-wrap">
 			<div id="tabs">
-				<!-- <div class="divs"> -->
 				<c:forEach var="questionlist" items="${ques}">
 					<%
 						String nameid = "ques" + Integer.toString(i);
@@ -145,43 +143,57 @@
 			<div>
 				<h5 style="color: grey">Question Navigator</h5>
 			</div>
+			<%
+				int j = 1;
+			%>
 			<ul id="ques_nav_bar">
-				<li><a href="#fragment-1">01</a></li>
-				<li><a href="#fragment-2">02</a></li>
-				<li><a href="#fragment-3">03</a></li>
-				<li><a href="#fragment-4">04</a></li>
+				<c:forEach var="questionNo" items="${ques}">
+					<%
+						String fragmentId = "'#fragment-" + Integer.toString(j) + "'";
+							request.setAttribute("fragmentId", fragmentId);
+							String fragmentNo = "";
+							if (j < 10)
+								fragmentNo = "0" + Integer.toString(j);
+							else
+								fragmentNo = Integer.toString(j);
+							boolean breakpoint=false;
+							if(j%15==0)
+								breakpoint=true;
+							
+								request.setAttribute("breakpoint", breakpoint);
+							request.setAttribute("fragmentNo", fragmentNo);
+							j++;
+					%>
+					<li><a href=${fragmentId}>${fragmentNo}</a></li>
+					<c:if test="${breakpoint=='true'}">
+						</br>
+						</br>
+					</c:if>
+				</c:forEach>
 			</ul>
-
-
 		</div>
-
 		</div>
-
-
+		</br>
 		<div style="height: 60px;" id="header_footer">
-			<h6 class="left">Logged in as ${sessionName}</h6>
-			<input type="submit" class=" right btn blue-grey darken-3" />
+			<div align="center">
+				<input type="submit" name="Submit" value="Submit"
+					class=" btn blue-grey darken-3" />
+			</div>
 		</div>
 	</form>
+	<h6 class="center-align" style="color: grey">Logged in as
+		${sessionName} (${sessionrollNo})</h6>
+	<script type="text/javascript">
+		$(function() {
+			$('#hms_timer').countdowntimer({
+				hours : "${myhr}",
+				minutes : "${mymin}",
+				seconds : "${mysec}",
+				size : "lg",
+				timeUp : myFunction
+			});
+		});
+	</script>
 
-
-
-
-
-
-	<!-- <div id="main">
-
-		<table style="border: 0px;">
-			<tr>
-				<td style="width: 70px; text-align: center;">Hours</td>
-				<td style="width: 60px; text-align: center;">Minutes</td>
-				<td style="width: 70px; text-align: center;">Seconds</td>
-			</tr>
-			<tr>
-				<td colspan="4"><span id="hms_timer"></span></td>
-			</tr>
-		</table>
-	</div> 
- -->	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script> -->
 </body>
 </html>
