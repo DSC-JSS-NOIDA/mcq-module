@@ -34,7 +34,7 @@
 <script src="static/js/style.js"></script>
 
 <!--JS FOR QUESTON NAVIGATOR  -->
-
+<script type="text/javascript" src="static/js/jquery-ui-1.7.custom.min.js"></script>
 
 
 </head>
@@ -54,7 +54,7 @@
 	<%
 		int i = 1;
 	%>
-	<form action="/gdgmcq/SubmitSolution" method="post" , id="myForm"
+	<form action="/gdgmcq/SubmitSolution" method="post", id="myForm"
 		onsubmit="return submitConfirm();">
 		<div id="page-wrap">
 			<div id="tabs">
@@ -80,22 +80,22 @@
 					<h5>${questionlist.question}</h5>
 					<h6>
 						<input type="radio" value="A" name="${nameid}"
-							onclick="changeBackgroundColor('${tabId}')" />
+							onclick="changetabAttributes('${tabId}')" />
 						${questionlist.optionA}
 					</h6>
 					<h6>
 						<input type="radio" value="B" name="${nameid}"
-							onclick="changeBackgroundColor('${tabId}')" />
+							onclick="changetabAttributes('${tabId}')" />
 						${questionlist.optionB}
 					</h6>
 					<h6>
 						<input type="radio" value="C" name="${nameid}"
-							onclick="changeBackgroundColor('${tabId}')" />
+							onclick="changetabAttributes('${tabId}')" />
 						${questionlist.optionC}
 					</h6>
 					<h6>
 						<input type="radio" value="D" name="${nameid}"
-							onclick="changeBackgroundColor('${tabId}')" />
+							onclick="changetabAttributes('${tabId}')" />
 						${questionlist.optionD}
 					</h6>
 			</div>
@@ -154,7 +154,7 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#hms_timer').countdowntimer({
-				hours : "${myhr}",
+				hours : "${myhr}", 
 				minutes : "${mymin}",
 				seconds : "${mysec}",
 				size : "lg",
@@ -197,8 +197,7 @@
 
 		});
 	</script>
-	<script type="text/javascript"
-		src="static/js/jquery-ui-1.7.custom.min.js"></script>
+
 
 	<script type="text/javascript">
 		function myFunction() {
@@ -207,9 +206,9 @@
 		}
 	</script>
 	<script type="text/javascript">
-		function changeBackgroundColor(asdf) {
-			document.getElementById(asdf).style.color = "#006400";
-			document.getElementById(asdf).style.fontWeight = "900";
+		function changetabAttributes(catched) {
+			document.getElementById(catched).style.color = "#006400";
+			document.getElementById(catched).style.fontWeight = "900";
 
 		}
 	</script>
