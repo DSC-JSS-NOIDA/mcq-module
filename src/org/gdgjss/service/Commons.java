@@ -34,11 +34,12 @@ public class Commons {
 		 * key attribute is set to check restart of test via back/front/refresh
 		 * button of browser. Here if condition is used so that 'key' attribute
 		 * is not created again-2 in case index page is refreshed which MAY
-		 * throw exception.
+		 * throw exceptions.
 		 */
 		if (httpSession.getAttribute("key1") == null)
 			httpSession.setAttribute("key1", "key1");
 		ModelAndView model = new ModelAndView("index");
+		model.addObject("invalid", null);
 
 		return model;
 	}
@@ -59,7 +60,7 @@ public class Commons {
 	// Login controller
 	@RequestMapping(value = "/LoginController", method = RequestMethod.POST)
 	public ModelAndView login(HttpSession httpSession, @RequestParam("email") String email,
-			@RequestParam("password") String password){
+			@RequestParam("password") String password) {
 		ModelAndView model;
 		Session session = sessionFactory.openSession();
 		registered = (Registration) session.get(Registration.class, email);
@@ -67,25 +68,35 @@ public class Commons {
 			if (registered.getPassword().equals(password)) {
 				httpSession.setAttribute("SESSION", registered);
 				/**
-				 * In case participant tries to come back to login
-				 * success(rules) page via back button and tries to to be smart
-				 * to restart the timer, following if block code is executed
-				 * because key1 attribute is already destroyed by question
-				 * display page.and Header(---) included on the jsp will force
-				 * for page-reload from server.
+				 * In case bad-ass tries to come back to login-success(rules)
+				 * page via browser back button and tries to be over smart to
+				 * restart the quiz timer, following if-block code is executed
+				 * as 'key1' attribute is already destroyed by question display
+				 * page at first place. Header(---) included on the mapped JSP
+				 * will force for page-reload from server and the GALVATRON
+				 * INTERCEPTER page will be displayed, automatically destroying
+				 * the session and logging out the participant.
+				 * 
+				 * @security
+				 * @author Tilhari
 				 */
 				if (httpSession.getAttribute("key1") == null) {
 					httpSession.invalidate();
-					return new ModelAndView("index_redirector");
+					return new ModelAndView("galvatronIntercepter");
 				}
 				registered = (Registration) httpSession.getAttribute("SESSION");
 				model = new ModelAndView("loginsuccess");
 				model.addObject("sessionName", registered.getName());
+				model.addObject("sessionrollNo", registered.getRollno());
 
-			} else
-				model = new ModelAndView("tester");
-		} else
-			model = new ModelAndView("tester");
+			} else {
+				model = new ModelAndView("index");
+				model.addObject("invalid", "Incorrect email or password");
+			}
+		} else {
+			model = new ModelAndView("index");
+			model.addObject("invalid", "Incorrect email or password");
+		}
 		session.close();
 		return model;
 	}

@@ -12,7 +12,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             
             <!-- My Stuff -->
-            <title>MCQ - Module</title>
+            <title>GDG Assessment</title>
             <link rel="stylesheet" type="text/css" href="static/css/style.css">
             <script type="text/javascript">
 			function formValidation()
@@ -32,9 +32,9 @@
         </head>
 
         <body id="background_indexpage">
-
             <div class="row">
                 <div class="col s4 offset-s6" id="box">
+                <h5 style="color: red;" class="left-align">${invalid}</h5>
                     <img src="static/images/gdgjsslogoblue.png" style="margin: 0px 0px 0px -17px;">
                     <br><br>
                     <a class="waves-effect waves-light modal-trigger blue-grey darken-3" id="btn" href="#modal1"><p id="btn-txt">Login</p></a>
@@ -45,7 +45,7 @@
                         <div class="modal-content">
                             <div class="container">
                                 <div class="row">
-                                    <h4 class="center blue-grey-text darken-3-text">LOGIN</h4>
+                                    <h4 class="center blue-grey-text text-darken-3">LOGIN</h4>
                                     <form class="col s12" action="/gdgmcq/LoginController.html" method="post">
                                         <div class="row">
                                             <div class="input-field col s12">
@@ -65,14 +65,14 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                          <a href="#!" class= "modal-action modal-close waves-effect waves-grey btn-flat blue-grey-text darken-3-text">CLOSE</a>
+                          <a href="#!" class= "modal-action modal-close waves-effect waves-grey btn-flat blue-grey-text text-darken-3">CLOSE</a>
                         </div>
                     </div>
                     <div id="modal2" class="modal">
                         <div class="modal-content">
                           <div class="container">
                                 <div class="row">
-                                    <h4 class="center blue-grey-text darken-3-text">SIGN UP</h4>
+                                    <h4 class="center blue-grey-text text-darken-3">SIGN UP</h4>
                                     <form class="col s12" action="/gdgmcq/RegistrationController.html" method="post" onsubmit="return formValidation();">
                                         <div class="row">
                                             <div class="input-field col s12">
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                          <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat blue-grey-text darken-3-text">Close</a>
+                          <a href="#!" class=" modal-action modal-close waves-effect waves-grey btn-flat blue-grey-text text-darken-3">Close</a>
                         </div>
                     </div>
                 </div>

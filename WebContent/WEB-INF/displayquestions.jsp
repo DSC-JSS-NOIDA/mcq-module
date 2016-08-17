@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>jquery countDownTimer Demo reverse countdown clock</title>
+<title>GDG Assessment</title>
 <meta name="description" content="reverse clock plugin for jQuery.">
 <meta name="keywords" content="jQuery, plugin, count down">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -34,7 +34,8 @@
 <script src="static/js/style.js"></script>
 
 <!--JS FOR QUESTON NAVIGATOR  -->
-<script type="text/javascript" src="static/js/jquery-ui-1.7.custom.min.js"></script>
+<script type="text/javascript"
+	src="static/js/jquery-ui-1.7.custom.min.js"></script>
 
 
 </head>
@@ -54,7 +55,7 @@
 	<%
 		int i = 1;
 	%>
-	<form action="/gdgmcq/SubmitSolution" method="post", id="myForm"
+	<form action="/gdgmcq/SubmitSolution" method="post" , id="myForm"
 		onsubmit="return submitConfirm();">
 		<div id="page-wrap">
 			<div id="tabs">
@@ -100,7 +101,6 @@
 					</h6>
 			</div>
 			</c:forEach>
-			<!-- </div> -->
 
 			<div>
 				<h5 style="color: grey">Question Navigator</h5>
@@ -145,16 +145,16 @@
 			</div>
 		</div>
 	</form>
-	<h6 class="center-align" style="color: grey">Logged in as
+	<h6 class="center-align blue-grey-text">Logged in as
 		${sessionName} (${sessionrollNo})</h6>
-		
-		
-		
+
+
+
 	<!-- User defined script @author Tilhari -->
 	<script type="text/javascript">
 		$(function() {
 			$('#hms_timer').countdowntimer({
-				hours : "${myhr}", 
+				hours : "${myhr}",
 				minutes : "${mymin}",
 				seconds : "${mysec}",
 				size : "lg",

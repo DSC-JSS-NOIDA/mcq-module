@@ -8,16 +8,31 @@
 %>
 <html>
 <head>
+<link rel="stylesheet" href="static/css/materialize.css" type="text/css"
+	media="screen, projection" />
+<link rel="stylesheet" href="static/css/style.css" type="text/css"
+	media="screen, projection" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Rules</title>
 </head>
-<body>
-	<h3>${sessionName}</h3>
-	<h1>Logged In !!!</h1>
-	<h2>This is rules/regulations page</h2>
-	<form action="/gdgmcq/QuestionController.html" method="post">
-		<button>START</button>
+<body background="static/images/quesbg.jpg">
 
-	</form>
+	<div style="height: 90px" id="header_footer">
+		<img src="static/images/gdgjsslogoblue.png" class="left">
+	</div>
+	<div class="center-align blue-grey-text text-darken-3">
+		<h4>Rules For Test Session</h4>
+	</div>
+	<div id="rules-page"  class="rules">
+	</div>
+	<div style="height: 60px;" id="header_footer">
+		<div align="center">
+			<form action="/gdgmcq/QuestionController.html" method="post">
+				<button class=" btn blue-grey darken-3">START</button>
+			</form>
+		</div>
+	</div>
+	<h6 class="center-align blue-grey-text">Logged in as
+		${sessionName} (${sessionrollNo})</h6>
 </body>
 </html>

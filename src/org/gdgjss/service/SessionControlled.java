@@ -39,7 +39,7 @@ public class SessionControlled {
 		 */
 		if (httpSession.getAttribute("key1") == null) {
 			httpSession.invalidate();
-			return new ModelAndView("index_redirector");
+			return new ModelAndView("galvatronIntercepter");
 		}
 		httpSession.removeAttribute("key1");
 		Session session = sessionFactory.openSession();

@@ -17,3 +17,15 @@
 	text-align: center;
 	opacity: 0.7;
 }
+
+.rules{
+	background-color:white;
+	min-height: 300px;
+	border:1px solid grey;
+	border-radius: 4px;
+}
+
+#rules-page
+{
+	width: 70% ;height: 60%; margin: 25px auto;
+}
