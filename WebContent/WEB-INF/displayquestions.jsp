@@ -29,57 +29,13 @@
 	media="screen, projection" />
 
 <!--JS FOR TIMER -->
-<!-- <script type="text/javascript" src="static/js/jquery-2.0.3.js"></script> -->
 <script type="text/javascript" src="static/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="static/js/jquery.countdownTimer.js"></script>
 <script src="static/js/style.js"></script>
 
 <!--JS FOR QUESTON NAVIGATOR  -->
 
-<script type="text/javascript"
-	src="static/js/jquery-ui-1.7.custom.min.js"></script>
 
-
-<script type="text/javascript">
-	$(function() {
-
-		var $tabs = $('#tabs').tabs();
-
-		$(".ui-tabs-panel")
-				.each(
-						function(i) {
-
-							var totalSize = $(".ui-tabs-panel").size() - 1;
-
-							if (i != totalSize) {
-								next = i + 2;
-								$(this)
-										.append(
-												"<a href='#' id='mover-btn' class='next-tab mover btn blue-grey darken-3' rel='" + next + "'>Next &#187;</a>");
-							}
-
-							if (i != 0) {
-								prev = i;
-								$(this)
-										.append(
-												"<a href='#' id='mover-btn' class='prev-tab mover btn blue-grey darken-3' rel='" + prev + "'>Prev</a>");
-							}
-
-						});
-
-		$('.next-tab, .prev-tab').click(function() {
-			$tabs.tabs('select', $(this).attr("rel"));
-			return false;
-		});
-
-	});
-</script>
-<script type="text/javascript">
-	function myFunction() {
-		alert("Time up !!!");
-		document.getElementById("myForm").submit();
-	}
-</script>
 
 </head>
 <body background="static/images/quesbg.jpg">
@@ -108,6 +64,8 @@
 							request.setAttribute("nameid", nameid);
 							String fragmentid = "fragment-" + Integer.toString(i);
 							request.setAttribute("fragmentid", fragmentid);
+							String tabId = nameid + "navtab";
+							request.setAttribute("tabId", tabId);
 							i++;
 					%>
 					<c:choose>
@@ -121,19 +79,23 @@
 
 					<h5>${questionlist.question}</h5>
 					<h6>
-						<input type="radio" value="A" name=${nameid}>
+						<input type="radio" value="A" name="${nameid}"
+							onclick="changeBackgroundColor('${tabId}')" />
 						${questionlist.optionA}
 					</h6>
 					<h6>
-						<input type="radio" value="B" name=${nameid}>
+						<input type="radio" value="B" name="${nameid}"
+							onclick="changeBackgroundColor('${tabId}')" />
 						${questionlist.optionB}
 					</h6>
 					<h6>
-						<input type="radio" value="C" name=${nameid}>
+						<input type="radio" value="C" name="${nameid}"
+							onclick="changeBackgroundColor('${tabId}')" />
 						${questionlist.optionC}
 					</h6>
 					<h6>
-						<input type="radio" value="D" name=${nameid}>
+						<input type="radio" value="D" name="${nameid}"
+							onclick="changeBackgroundColor('${tabId}')" />
 						${questionlist.optionD}
 					</h6>
 			</div>
@@ -149,22 +111,24 @@
 			<ul id="ques_nav_bar">
 				<c:forEach var="questionNo" items="${ques}">
 					<%
-						String fragmentId = "'#fragment-" + Integer.toString(j) + "'";
-							request.setAttribute("fragmentId", fragmentId);
+						String navtabId = "ques" + Integer.toString(j) + "navtab";
+							request.setAttribute("navtabId", navtabId);
+							String fragmentref = "'#fragment-" + Integer.toString(j) + "'";
+							request.setAttribute("fragmentref", fragmentref);
 							String fragmentNo = "";
 							if (j < 10)
 								fragmentNo = "0" + Integer.toString(j);
 							else
 								fragmentNo = Integer.toString(j);
-							boolean breakpoint=false;
-							if(j%15==0)
-								breakpoint=true;
-							
-								request.setAttribute("breakpoint", breakpoint);
+							boolean breakpoint = false;
+							if (j % 15 == 0)
+								breakpoint = true;
+
+							request.setAttribute("breakpoint", breakpoint);
 							request.setAttribute("fragmentNo", fragmentNo);
 							j++;
 					%>
-					<li><a href=${fragmentId}>${fragmentNo}</a></li>
+					<li><a href=${fragmentref } id='${navtabId}'>${fragmentNo}</a></li>
 					<c:if test="${breakpoint=='true'}">
 						</br>
 						</br>
@@ -173,7 +137,7 @@
 			</ul>
 		</div>
 		</div>
-		</br>
+
 		<div style="height: 60px;" id="header_footer">
 			<div align="center">
 				<input type="submit" name="Submit" value="Submit"
@@ -183,6 +147,10 @@
 	</form>
 	<h6 class="center-align" style="color: grey">Logged in as
 		${sessionName} (${sessionrollNo})</h6>
+		
+		
+		
+	<!-- User defined script @author Tilhari -->
 	<script type="text/javascript">
 		$(function() {
 			$('#hms_timer').countdowntimer({
@@ -193,6 +161,57 @@
 				timeUp : myFunction
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+		$(function() {
+
+			var $tabs = $('#tabs').tabs();
+
+			$(".ui-tabs-panel")
+					.each(
+							function(i) {
+
+								var totalSize = $(".ui-tabs-panel").size() - 1;
+
+								if (i != totalSize) {
+									next = i + 2;
+									$(this)
+											.append(
+													"<a href='#' id='mover-btn' class='next-tab mover btn blue-grey darken-3' rel='" + next + "'>Next &#187;</a>");
+								}
+
+								if (i != 0) {
+									prev = i;
+									$(this)
+											.append(
+													"<a href='#' id='mover-btn' class='prev-tab mover btn blue-grey darken-3' rel='" + prev + "'>Prev</a>");
+								}
+
+							});
+
+			$('.next-tab, .prev-tab').click(function() {
+				$tabs.tabs('select', $(this).attr("rel"));
+				return false;
+			});
+
+		});
+	</script>
+	<script type="text/javascript"
+		src="static/js/jquery-ui-1.7.custom.min.js"></script>
+
+	<script type="text/javascript">
+		function myFunction() {
+			alert("Time up !!!");
+			document.getElementById("myForm").submit();
+		}
+	</script>
+	<script type="text/javascript">
+		function changeBackgroundColor(asdf) {
+			document.getElementById(asdf).style.color = "#006400";
+			document.getElementById(asdf).style.fontWeight = "900";
+
+		}
 	</script>
 
 </body>

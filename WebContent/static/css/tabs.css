@@ -8,10 +8,10 @@ body								{ font: 14px Helvetica, Sans-Serif; }
 .ui-tabs .ui-tabs-nav 				{ list-style: none; position: relative; padding: 2px 2px 0; overflow: hidden; 
 									  top: 1px; z-index: 1000; }
 .ui-tabs .ui-tabs-nav li 			{ position: relative; float: left; border: 1px solid #ccc; 
-									  border-bottom-width: 0 !important; margin: 0 2px -1px 0; background: #ccc; }
-.ui-tabs .ui-tabs-nav li a 			{ float: right; text-decoration: none; padding: 5px 10px; color: black; }
+									   margin: 0 2px -1px 0; height:32px; background: #ccc; }
+.ui-tabs .ui-tabs-nav li a 			{ float: right; text-decoration: none; padding: 7px 10px; color: black; }
 .ui-tabs .ui-tabs-nav 
-li.ui-tabs-selected 				{ padding-bottom: 1px; border-bottom-width: 0; background: white; }
+li.ui-tabs-selected 				{ padding-bottom: 1px; border-color:black; border-width:1px; background: white; }
 .ui-tabs .ui-tabs-nav 
 li.ui-tabs-selected a, .ui-tabs 
 .ui-tabs-nav li.ui-state-disabled a, 
