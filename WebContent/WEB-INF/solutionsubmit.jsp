@@ -16,7 +16,7 @@
 	<br/>
 	<br/>
 	<h5 class="center-align blue-grey-text text-darken-3">Thanks ${sessionName}<br/><br/>
-	Your response has been successfully submitted. Results will be declared soon.<br/><br/>Good Luck !!!
+	Your response has been successfully recorded. Results will be declared soon.<br/><br/>Good Luck !!!
 	</h5>
 	<br/>
 	<div align="center">

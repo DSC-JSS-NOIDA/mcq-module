@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.stereotype.Repository;
+
 /**
  * Entity set: Registration of participation.
+ * 
  * @author Tilhari
  *
  */
@@ -16,10 +18,10 @@ public class Registration {
 	private String name;
 	private String college;
 	private String branch;
+	@Id
 	private String rollno;
 	private String labno;
 	private String contact;
-	@Id
 	private String email;
 	private String password;
 

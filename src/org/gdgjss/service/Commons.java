@@ -49,21 +49,27 @@ public class Commons {
 	public ModelAndView submitAdmissionForm(
 			@ModelAttribute("registration") org.gdgjss.model.Registration registration) {
 		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		session.save(registration);
-		session.getTransaction().commit();
-		session.close();
 		ModelAndView model = new ModelAndView("index");
+		if(session.get(Registration.class, registration.getRollno()) == null)
+		{
+			session.beginTransaction();
+			session.save(registration);
+			session.getTransaction().commit();
+			model.addObject("invalid", null);
+		}
+		else
+			model.addObject("invalid", "This roll number is already registered.");
+		session.close();
 		return model;
 	}
 
 	// Login controller
 	@RequestMapping(value = "/LoginController", method = RequestMethod.POST)
-	public ModelAndView login(HttpSession httpSession, @RequestParam("email") String email,
+	public ModelAndView login(HttpSession httpSession, @RequestParam("rollno") String rollno,
 			@RequestParam("password") String password) {
 		ModelAndView model;
 		Session session = sessionFactory.openSession();
-		registered = (Registration) session.get(Registration.class, email);
+		registered = (Registration) session.get(Registration.class, rollno);
 		if (registered != null) {
 			if (registered.getPassword().equals(password)) {
 				httpSession.setAttribute("SESSION", registered);
@@ -91,11 +97,11 @@ public class Commons {
 
 			} else {
 				model = new ModelAndView("index");
-				model.addObject("invalid", "Incorrect email or password");
+				model.addObject("invalid", "Incorrect roll number or password");
 			}
 		} else {
 			model = new ModelAndView("index");
-			model.addObject("invalid", "Incorrect email or password");
+			model.addObject("invalid", "Incorrect roll number or password");
 		}
 		session.close();
 		return model;

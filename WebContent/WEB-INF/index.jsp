@@ -25,7 +25,6 @@
 					alert('password not matched');
 					return false
 				}
-				alert('Your registration is successful, now you can login');
 				return true;
 			}
 		</script>
@@ -34,7 +33,7 @@
         <body id="background_indexpage">
             <div class="row">
                 <div class="col s4 offset-s6" id="box">
-                <h5 style="color: red;" class="left-align">${invalid}</h5>
+                <h6 style="color: red;" class="left-align">${invalid}</h6>
                     <img src="static/images/gdgjsslogoblue.png" style="margin: 0px 0px 0px -17px;">
                     <br><br>
                     <a class="waves-effect waves-light modal-trigger blue-grey darken-3" id="btn" href="#modal1"><p id="btn-txt">Login</p></a>
@@ -49,9 +48,9 @@
                                     <form class="col s12" action="/gdgmcq/LoginController.html" method="post">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                              <i class="material-icons prefix">email</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="email" required />
-                                              <label for="icon_prefix">Email</label>
+                                              <i class="material-icons prefix">person_pin</i>
+                                              <input id="icon_prefix" type="text" class="validate" name="rollno" required />
+                                              <label for="icon_prefix">Roll Number</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock</i>
