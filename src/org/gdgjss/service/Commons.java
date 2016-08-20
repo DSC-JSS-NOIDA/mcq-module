@@ -3,6 +3,7 @@ package org.gdgjss.service;
 import javax.servlet.http.HttpSession;
 
 import org.gdgjss.model.Registration;
+import org.gdgjss.model.Results;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class Commons {
 	SessionFactory sessionFactory;
 	@Autowired
 	Registration registered;
+	@Autowired
+	Results results;
 
 	// Index page controller.
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -55,7 +58,13 @@ public class Commons {
 			session.beginTransaction();
 			session.save(registration);
 			session.getTransaction().commit();
+			results.setCorrectAnswered(0);
+			results.setNetMarks(0);
+			results.setWrongAnswered(0);
+			results.setRegistration(registration);
+			session.save(results);
 			model.addObject("invalid", null);
+			
 		}
 		else
 			model.addObject("invalid", "This roll number is already registered.");

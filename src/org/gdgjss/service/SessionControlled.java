@@ -64,7 +64,6 @@ public class SessionControlled {
 		int seqOfQues=1;
 		for(Questions getAnswers: ques){
 			solutions[seqOfQues]=getAnswers.getAnswer();
-			System.out.println(solutions[seqOfQues]+ " of question id  "+ getAnswers.getQuestion_id());
 			seqOfQues++;
 		}
 			
@@ -89,15 +88,13 @@ public class SessionControlled {
 		{
 			String nameid = "ques" + Integer.toString(j);
 			String participantSolution=request.getParameter(nameid);
-			System.out.println(participantSolution);
 			if(participantSolution!=null){
 				if(solutions[j].equals(participantSolution))
 					marks+=3;
-					else if (!(solutions[j].equals(participantSolution)))
+					else
 					marks-=1;
 							
 			}
-			System.out.println(marks + " after Ques "+ nameid + " solutionno "+ solutions[j]);
 		}
 		registration = (Registration) httpSession.getAttribute("SESSION");
 		model.addObject("marks", marks);
