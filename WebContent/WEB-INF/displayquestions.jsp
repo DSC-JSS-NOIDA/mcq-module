@@ -149,7 +149,6 @@
 		${sessionName} (${sessionrollNo})</h6>
 
 
-
 	<!-- User defined script @author Tilhari -->
 	<script type="text/javascript">
 		$(function() {

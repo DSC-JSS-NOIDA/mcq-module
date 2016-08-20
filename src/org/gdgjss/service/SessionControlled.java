@@ -1,7 +1,10 @@
 package org.gdgjss.service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.gdgjss.model.Questions;
@@ -23,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SessionControlled {
+	
+	private String solutions[];
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -34,7 +39,7 @@ public class SessionControlled {
 	public ModelAndView submitAdmissionForm(HttpSession httpSession){
 		/**
 		 * As soon as the test is started key1 attribute is destroyed.
-		 * In case reload/ back button is triggered while test is going on, jsp
+		 * In case reload/ back button is triggered while test is going on, JSP
 		 * Header(---) and following if block code will logout the participant.
 		 */
 		if (httpSession.getAttribute("key1") == null) {
@@ -43,7 +48,26 @@ public class SessionControlled {
 		}
 		httpSession.removeAttribute("key1");
 		Session session = sessionFactory.openSession();
+		
+		/**
+		 * Logic for shuffling questions for each participants.
+		 */
+		
 		List<Questions> ques = session.createCriteria(Questions.class).list();
+		session.close();
+		Collections.shuffle(ques);
+		int size=ques.size();
+		/**
+		 * Ignoring 0th position of array solution to sync the solution.
+		 */
+		solutions= new String [size+1];
+		int seqOfQues=1;
+		for(Questions getAnswers: ques){
+			solutions[seqOfQues]=getAnswers.getAnswer();
+			System.out.println(solutions[seqOfQues]+ " of question id  "+ getAnswers.getQuestion_id());
+			seqOfQues++;
+		}
+			
 		ModelAndView model = new ModelAndView("displayquestions");
 		int myhr=0,mymin=20,mysec=0;
 		registration = (Registration) httpSession.getAttribute("SESSION");
@@ -53,15 +77,30 @@ public class SessionControlled {
 		model.addObject("mymin", mymin);
 		model.addObject("mysec", mysec);
 		model.addObject("ques", ques);
-		session.close();
 		return model;
 
 	}
 
 	@RequestMapping(value = "/SubmitSolution", method = RequestMethod.POST)
-	public ModelAndView submitSolution(HttpSession httpSession) {
+	public ModelAndView submitSolution(HttpSession httpSession,HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("solutionsubmit");
+		int marks=0;
+		for(int j=1;j<solutions.length;j++)
+		{
+			String nameid = "ques" + Integer.toString(j);
+			String participantSolution=request.getParameter(nameid);
+			System.out.println(participantSolution);
+			if(participantSolution!=null){
+				if(solutions[j].equals(participantSolution))
+					marks+=3;
+					else if (!(solutions[j].equals(participantSolution)))
+					marks-=1;
+							
+			}
+			System.out.println(marks + " after Ques "+ nameid + " solutionno "+ solutions[j]);
+		}
 		registration = (Registration) httpSession.getAttribute("SESSION");
+		model.addObject("marks", marks);
 		model.addObject("sessionName", registration.getName());
 		httpSession.invalidate();
 		return model;
