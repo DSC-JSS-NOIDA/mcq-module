@@ -37,6 +37,12 @@
 <script type="text/javascript"
 	src="static/js/jquery-ui-1.7.custom.min.js"></script>
 
+	<!--TODO : warning before page reload  -->
+<!-- 	<script type="text/javascript">
+	window.addEventListener("beforeunload", function() {
+	     confirm("Are you sure?");
+	     });
+	</script> -->
 
 </head>
 <body background="static/images/quesbg.jpg">
@@ -211,6 +217,7 @@
 
 		}
 	</script>
+
 
 </body>
 </html>

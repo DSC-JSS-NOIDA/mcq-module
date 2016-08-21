@@ -3,7 +3,6 @@ package org.gdgjss.service;
 import javax.servlet.http.HttpSession;
 
 import org.gdgjss.model.Registration;
-import org.gdgjss.model.Results;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +26,6 @@ public class Commons {
 	SessionFactory sessionFactory;
 	@Autowired
 	Registration registered;
-	@Autowired
-	Results results;
 
 	// Index page controller.
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -56,13 +53,12 @@ public class Commons {
 		if(session.get(Registration.class, registration.getRollno()) == null)
 		{
 			session.beginTransaction();
+			registration.setCorrectAnswered(0);
+			registration.setNetMarks(0);
+			registration.setWrongAnswered(0);
+			registration.setNotAnswered(0);
 			session.save(registration);
 			session.getTransaction().commit();
-			results.setCorrectAnswered(0);
-			results.setNetMarks(0);
-			results.setWrongAnswered(0);
-			results.setRegistration(registration);
-			session.save(results);
 			model.addObject("invalid", null);
 			
 		}

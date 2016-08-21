@@ -33,7 +33,7 @@
 	FACEBOOK PAGE<br/>
 	www.facebook.com/gdgjss
 	</h6>
-	<h5 class="center-align blue-grey-text text-darken-3">Marks :  ${marks}</h5>
+	
 	
 </body>
 

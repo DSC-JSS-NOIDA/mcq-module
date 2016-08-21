@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Entity
 public class Questions {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer question_id;

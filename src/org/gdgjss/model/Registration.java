@@ -24,6 +24,10 @@ public class Registration {
 	private String contact;
 	private String email;
 	private String password;
+	private int netMarks;
+	private int correctAnswered;
+	private int wrongAnswered;
+	private int notAnswered;
 
 	public String getName() {
 		return name;
@@ -89,4 +93,36 @@ public class Registration {
 		this.password = password;
 	}
 
+	public int getNetMarks() {
+		return netMarks;
+	}
+
+	public void setNetMarks(int netMarks) {
+		this.netMarks = netMarks;
+	}
+
+	public int getCorrectAnswered() {
+		return correctAnswered;
+	}
+
+	public void setCorrectAnswered(int correctAnswered) {
+		this.correctAnswered = correctAnswered;
+	}
+
+	public int getWrongAnswered() {
+		return wrongAnswered;
+	}
+
+	public void setWrongAnswered(int wrongAnswered) {
+		this.wrongAnswered = wrongAnswered;
+	}
+
+	public int getNotAnswered() {
+		return notAnswered;
+	}
+
+	public void setNotAnswered(int notAnswered) {
+		this.notAnswered = notAnswered;
+	}
+	
 }
