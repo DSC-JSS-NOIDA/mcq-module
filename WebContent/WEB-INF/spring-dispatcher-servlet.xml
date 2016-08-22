@@ -53,15 +53,15 @@
 		</property>
 	</bean>
 	
-<bean id="sessionFactory2"
+	 <bean id="sessionFactory2"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="dev.suyash.adminpanel" />
+		<property name="dataSource" ref="dataSource2" />
+		<property name="packagesToScan" value="org.gdgjss.adminpanel" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 			</props>
 		</property>
-	</bean>
+	</bean> 
 
 </beans>

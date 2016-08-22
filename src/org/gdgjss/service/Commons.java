@@ -2,10 +2,12 @@ package org.gdgjss.service;
 
 import javax.servlet.http.HttpSession;
 
+import org.gdgjss.adminpanel.*;
 import org.gdgjss.model.Registration;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +25,15 @@ import org.springframework.web.servlet.ModelAndView;
 public class Commons {
 
 	@Autowired
+	@Qualifier(value="sessionFactory")
 	SessionFactory sessionFactory;
 	@Autowired
 	Registration registered;
-	
+	@Autowired
+	Admin admin;
+	@Autowired
+	@Qualifier(value="sessionFactory2")
+	SessionFactory sessionFactory2;
 
 	// Index page controller.
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -51,7 +58,35 @@ public class Commons {
 		ModelAndView model = new ModelAndView("adminLogin");
 		return model;
 	}
-	
+	//admin login success
+	@RequestMapping(value = "/AdminLoginController", method = RequestMethod.POST)
+	public ModelAndView adminlogin(HttpSession httpSession, @RequestParam("username") String username,
+			@RequestParam("password") String password) {
+		ModelAndView model;
+		Session session = sessionFactory2.openSession();
+		admin = (Admin) session.get(Admin.class, username);
+		if (admin != null) {
+			if (admin.getPassword().equals(password)) {
+				httpSession.setAttribute("ADMINSESSION", admin);
+				if (httpSession.getAttribute("key1") == null) {
+					httpSession.invalidate();
+					return new ModelAndView("galvatronIntercepter");
+				}
+				registered = (Registration) httpSession.getAttribute("ADMINSESSION");
+				model = new ModelAndView("adminWorkspace");
+				model.addObject("sessionName", admin.getUsername());
+
+			} else {
+				model = new ModelAndView("adminLogin");
+				model.addObject("invalid", "Incorrect username or password");
+			}
+		} else {
+			model = new ModelAndView("adminLogin");
+			model.addObject("invalid", "Incorrect username or password");
+		}
+		session.close();
+		return model;
+	}
 	
 
 	// Registration page controller
