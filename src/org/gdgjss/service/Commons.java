@@ -26,6 +26,7 @@ public class Commons {
 	SessionFactory sessionFactory;
 	@Autowired
 	Registration registered;
+	
 
 	// Index page controller.
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -43,6 +44,15 @@ public class Commons {
 
 		return model;
 	}
+	
+	//admin login page
+	@RequestMapping(value = "/gdgadmin", method = RequestMethod.GET)
+	public ModelAndView adminloginpage() {
+		ModelAndView model = new ModelAndView("adminLogin");
+		return model;
+	}
+	
+	
 
 	// Registration page controller
 	@RequestMapping(value = "/RegistrationController", method = RequestMethod.POST)
