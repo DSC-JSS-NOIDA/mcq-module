@@ -33,5 +33,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/home/suyash/java/java_resources/jars/lightadmin-1.2.0.RC1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

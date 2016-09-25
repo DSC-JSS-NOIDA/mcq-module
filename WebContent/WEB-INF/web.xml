@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  
-  <display-name>BasicSpringMVC</display-name>
-  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+
+	<display-name>BasicSpringMVC</display-name>
+	
+	
+	<context-param>
+		<param-name>light:administration:base-url</param-name>
+		<param-value>/admin</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>light:administration:security</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>light:administration:base-package</param-name>
+		<param-value>org.lightadmin.config</param-value>
+	</context-param>
+	
+	<context-param>
+        <param-name>light:administration:back-to-site-url</param-name>
+        <param-value>http://lightadmin.org</param-value>
+    </context-param>
+    
 	<servlet>
 		<servlet-name>spring-dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -11,9 +35,12 @@
 		<servlet-name>spring-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
-	<servlet-name>default</servlet-name>
-	<url-pattern>/static/*</url-pattern>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/static/*</url-pattern>
 	</servlet-mapping>
+
+	
+
 </web-app>
