@@ -158,3 +158,51 @@ public class Commons {
 	}
 
 }
+
+
+
+
+//// alter use of -------string with Model------- in case donot want to use ModelandView
+/*
+Session session = sessionFactory.openSession();
+registered = (Registration) session.get(Registration.class, rollno);
+if (registered != null) {
+	if (registered.getPassword().equals(password)) {
+		httpSession.setAttribute("SESSION", registered);
+		*//**
+		 * In case bad-ass tries to come back to login-success(rules)
+		 * page via browser back button and tries to be over smart to
+		 * restart the quiz timer, following if-block code is executed
+		 * as 'key1' attribute is already destroyed by question display
+		 * page at first place. Header(---) included on the mapped JSP
+		 * will force for page-reload from server and the GALVATRON
+		 * INTERCEPTER page will be displayed, automatically destroying
+		 * the session and logging out the participant.
+		 * 
+		 * @security
+		 * @author Tilhari
+		 *//*
+		if (httpSession.getAttribute("key1") == null) {
+			httpSession.invalidate();
+			return new ModelAndView("galvatronIntercepter");
+			return "yoyo";
+		}
+		registered = (Registration) httpSession.getAttribute("SESSION");
+		model = new ModelAndView("loginsuccess");
+		model.addObject("sessionName", registered.getName());
+		model.addObject("sessionrollNo", registered.getRollno());
+				return "chiki";
+	} else {
+		model = new ModelAndView("index");
+		model.addAttribute("invalid", "Incorrect roll number or password");
+	}
+} else {
+	model = new ModelAndView("index");
+	model.addAttribute("invalid", "Incorrect roll number or password");
+}
+session.close();
+return "index";  //name of jsp page/view
+}
+
+}
+*/

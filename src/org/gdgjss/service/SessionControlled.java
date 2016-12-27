@@ -7,6 +7,7 @@ import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.gdgjss.model.Constraints;
 import org.gdgjss.model.Questions;
 import org.gdgjss.model.Registration;
 import org.hibernate.Session;
@@ -27,6 +28,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SessionControlled {
+	
+	private List<Constraints> cons;
 
 	private String solutions[];
 
@@ -57,6 +60,7 @@ public class SessionControlled {
 		 */
 
 		List<Questions> ques = session.createCriteria(Questions.class).list();
+		cons= session.createCriteria(Constraints.class).list();
 		session.close();
 		Collections.shuffle(ques);
 		int size = ques.size();
@@ -69,15 +73,15 @@ public class SessionControlled {
 			solutions[seqOfQues] = getAnswers.getAnswer();
 			seqOfQues++;
 		}
-
+		System.out.println( "yeah11"  +cons.get(0).getValue());
 		ModelAndView model = new ModelAndView("displayquestions");
 		int myhr = 0, mymin = 20, mysec = 0;
 		registration = (Registration) httpSession.getAttribute("SESSION");
 		model.addObject("sessionName", registration.getName());
 		model.addObject("sessionrollNo", registration.getRollno());
-		model.addObject("myhr", myhr);
-		model.addObject("mymin", mymin);
-		model.addObject("mysec", mysec);
+		model.addObject("myhr", cons.get(3).getValue());
+		model.addObject("mymin", cons.get(4).getValue());
+		model.addObject("mysec", cons.get(5).getValue());
 		model.addObject("ques", ques);
 		return model;
 
@@ -92,10 +96,10 @@ public class SessionControlled {
 			String participantSolution = request.getParameter(nameid);
 			if (participantSolution != null) {
 				if (solutions[j].equals(participantSolution)) {
-					marks += 3;
+					marks += Integer.parseInt(cons.get(1).getValue());
 					countCorrect += 1;
 				} else {
-					marks -= 1;
+					marks -= Integer.parseInt(cons.get(0).getValue());
 					countWrong += 1;
 				}
 
