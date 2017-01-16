@@ -59,34 +59,11 @@ public class Commons {
 		return model;
 	}
 	//admin login success
-	@RequestMapping(value = "/AdminLoginController", method = RequestMethod.POST)
-	public ModelAndView adminlogin(HttpSession httpSession, @RequestParam("username") String username,
-			@RequestParam("password") String password) {
-		ModelAndView model;
-		Session session = sessionFactory2.openSession();
-		admin = (Admin) session.get(Admin.class, username);
-		if (admin != null) {
-			if (admin.getPassword().equals(password)) {
-				httpSession.setAttribute("ADMINSESSION", admin);
-				if (httpSession.getAttribute("key1") == null) {
-					httpSession.invalidate();
-					return new ModelAndView("galvatronIntercepter");
-				}
-				registered = (Registration) httpSession.getAttribute("ADMINSESSION");
-				model = new ModelAndView("adminWorkspace");
-				model.addObject("sessionName", admin.getUsername());
-
-			} else {
-				model = new ModelAndView("adminLogin");
-				model.addObject("invalid", "Incorrect username or password");
-			}
-		} else {
-			model = new ModelAndView("adminLogin");
-			model.addObject("invalid", "Incorrect username or password");
-		}
-		session.close();
-		return model;
-	}
+	@RequestMapping(value = "/redirect", method = RequestMethod.POST)
+	public String redirect() {
+	     
+	      return "redirect:admin";
+	   }
 	
 
 	// Registration page controller
@@ -104,12 +81,13 @@ public class Commons {
 			registration.setNotAnswered(0);
 			session.save(registration);
 			session.getTransaction().commit();
-			model.addObject("invalid", null);
+			session.close();
+			model.addObject("invalid", "Successfully registered, login to proceed!");
 			
 		}
 		else
 			model.addObject("invalid", "This roll number is already registered.");
-		session.close();
+		
 		return model;
 	}
 
@@ -206,3 +184,33 @@ return "index";  //name of jsp page/view
 
 }
 */
+
+
+
+/*public ModelAndView adminlogin(HttpSession httpSession, @RequestParam("username") String username,
+		@RequestParam("password") String password) {
+	ModelAndView model;
+	Session session = sessionFactory2.openSession();
+	admin = (Admin) session.get(Admin.class, username);
+	if (admin != null) {
+		if (admin.getPassword().equals(password)) {
+			httpSession.setAttribute("ADMINSESSION", admin);
+			if (httpSession.getAttribute("key1") == null) {
+				httpSession.invalidate();
+				return new ModelAndView("galvatronIntercepter");
+			}
+			registered = (Registration) httpSession.getAttribute("ADMINSESSION");
+			model = new ModelAndView("adminWorkspace");
+			model.addObject("sessionName", admin.getUsername());
+
+		} else {
+			model = new ModelAndView("adminLogin");
+			model.addObject("invalid", "Incorrect username or password");
+		}
+	} else {
+		model = new ModelAndView("adminLogin");
+		model.addObject("invalid", "Incorrect username or password");
+	}
+	session.close();
+	return model;
+}*/

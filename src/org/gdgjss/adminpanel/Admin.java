@@ -29,5 +29,4 @@ public class Admin {
 		this.password = password;
 	}
 	
-	
 }
