@@ -112,7 +112,7 @@
                                             
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock_outline</i>
-                                              <input id="pass1" type="password" class="validate" name="password" required />
+                                              <input id="pass1" type="password" class="validate" name="pass" required />
                                               <label for="icon_telephone">Password</label>
                                             </div>
                                             <div class="input-field col s12">

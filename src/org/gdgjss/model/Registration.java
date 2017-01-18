@@ -24,10 +24,7 @@ public class Registration {
 	private String contact;
 	private String email;
 	private String pass;
-	private int netMark;
-	private int rgtAns;
-	private int wngAns;
-	private int notAns;
+	
 	public String getName() {
 		return name;
 	}
@@ -75,30 +72,6 @@ public class Registration {
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
-	}
-	public int getNetMark() {
-		return netMark;
-	}
-	public void setNetMark(int netMark) {
-		this.netMark = netMark;
-	}
-	public int getRgtAns() {
-		return rgtAns;
-	}
-	public void setRgtAns(int rgtAns) {
-		this.rgtAns = rgtAns;
-	}
-	public int getWngAns() {
-		return wngAns;
-	}
-	public void setWngAns(int wngAns) {
-		this.wngAns = wngAns;
-	}
-	public int getNotAns() {
-		return notAns;
-	}
-	public void setNotAns(int notAns) {
-		this.notAns = notAns;
 	}
 
 	

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.gdgjss.adminpanel.*;
 import org.gdgjss.model.Registration;
+import org.gdgjss.model.Result;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,8 @@ public class Commons {
 	@Qualifier(value="sessionFactory")
 	SessionFactory sessionFactory;
 	@Autowired
-	Registration registered;
+	private Registration registered;
+	
 	@Autowired
 	Admin admin;
 	@Autowired
@@ -72,14 +74,20 @@ public class Commons {
 			@ModelAttribute("registration") org.gdgjss.model.Registration registration) {
 		Session session = sessionFactory.openSession();
 		ModelAndView model = new ModelAndView("index");
+		Result result=new Result();
 		if(session.get(Registration.class, registration.getRollno()) == null)
 		{
 			session.beginTransaction();
-			registration.setRgtAns(0);
-			registration.setNetMark(0);
-			registration.setWngAns(0);
-			registration.setNotAns(0);
 			session.save(registration);
+			result.setContact(registration.getContact());
+			result.setName(registration.getName());
+			result.setRollno(registration.getRollno());
+			result.setNetMarks(0);
+			result.setRgtAns(0);
+			result.setWngAns(0);
+			result.setNotAns(0);
+			
+			session.save(result);
 			session.getTransaction().commit();
 			session.close();
 			model.addObject("invalid", "Successfully registered, login to proceed!");

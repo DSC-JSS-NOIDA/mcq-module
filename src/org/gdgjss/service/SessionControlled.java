@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.gdgjss.model.Constraints;
 import org.gdgjss.model.Questions;
 import org.gdgjss.model.Registration;
+import org.gdgjss.model.Result;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -39,6 +40,8 @@ public class SessionControlled {
 	@Autowired
 	private Registration registration;
 
+	@Autowired
+	private Result result;
 	
 
 	@RequestMapping(value = "/sessionQuestionController", method = RequestMethod.POST)
@@ -110,10 +113,10 @@ public class SessionControlled {
 		registration = (Registration) httpSession.getAttribute("SESSION");
 		Session session = sessionFactory.openSession();
 		Transaction tx=session.beginTransaction();
-		registration.setRgtAns(countCorrect);
-		registration.setWngAns(countWrong);
-		registration.setNotAns(countUnanswered);
-		registration.setNetMark(marks);
+		result.setRgtAns(countCorrect);
+		result.setWngAns(countWrong);
+		result.setNotAns(countUnanswered);
+		result.setNetMarks(marks);
 		session.update(registration);
 		tx.commit();
 		session.close();
