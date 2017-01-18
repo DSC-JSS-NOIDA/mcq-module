@@ -45,6 +45,9 @@
 			value="jdbc:mysql://localhost:3306/mcq_portal?zeroDateTimeBehavior=convertToNull" />
 		<property name="username" value="root" />
 		<property name="password" value="tilhari" />
+		<property name="removeAbandoned" value="true" />
+		<property name="initialSize" value="10" />
+		<property name="maxActive" value="30" />
 	</bean>
 
 	<bean id="dataSource2" class="org.apache.commons.dbcp.BasicDataSource">

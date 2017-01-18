@@ -75,10 +75,10 @@ public class Commons {
 		if(session.get(Registration.class, registration.getRollno()) == null)
 		{
 			session.beginTransaction();
-			registration.setCorrectAnswered(0);
-			registration.setNetMarks(0);
-			registration.setWrongAnswered(0);
-			registration.setNotAnswered(0);
+			registration.setRgtAns(0);
+			registration.setNetMark(0);
+			registration.setWngAns(0);
+			registration.setNotAns(0);
 			session.save(registration);
 			session.getTransaction().commit();
 			session.close();
@@ -99,7 +99,7 @@ public class Commons {
 		Session session = sessionFactory.openSession();
 		registered = (Registration) session.get(Registration.class, rollno);
 		if (registered != null) {
-			if (registered.getPassword().equals(password)) {
+			if (registered.getPass().equals(password)) {
 				httpSession.setAttribute("SESSION", registered);
 				/**
 				 * In case bad-ass tries to come back to login-success(rules)

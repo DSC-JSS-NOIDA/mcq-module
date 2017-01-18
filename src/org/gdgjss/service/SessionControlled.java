@@ -110,10 +110,10 @@ public class SessionControlled {
 		registration = (Registration) httpSession.getAttribute("SESSION");
 		Session session = sessionFactory.openSession();
 		Transaction tx=session.beginTransaction();
-		registration.setCorrectAnswered(countCorrect);
-		registration.setWrongAnswered(countWrong);
-		registration.setNotAnswered(countUnanswered);
-		registration.setNetMarks(marks);
+		registration.setRgtAns(countCorrect);
+		registration.setWngAns(countWrong);
+		registration.setNotAns(countUnanswered);
+		registration.setNetMark(marks);
 		session.update(registration);
 		tx.commit();
 		session.close();

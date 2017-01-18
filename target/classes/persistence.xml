@@ -7,6 +7,7 @@
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
       <class>org.gdgjss.model.Registration</class>
       <class>org.gdgjss.model.Questions</class>
+      <class>org.gdgjss.model.Constraints</class>
       <properties>
       	 <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 <!-- 	 <property name="hibernate.connection.username" value="root"/>
