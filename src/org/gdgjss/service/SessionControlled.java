@@ -40,8 +40,6 @@ public class SessionControlled {
 	@Autowired
 	private Registration registration;
 
-	@Autowired
-	private Result result;
 	
 
 	@RequestMapping(value = "/sessionQuestionController", method = RequestMethod.POST)
@@ -112,12 +110,13 @@ public class SessionControlled {
 		}
 		registration = (Registration) httpSession.getAttribute("SESSION");
 		Session session = sessionFactory.openSession();
+		Result res=(Result)session.get(Result.class, registration.getRollno());
 		Transaction tx=session.beginTransaction();
-		result.setRgtAns(countCorrect);
-		result.setWngAns(countWrong);
-		result.setNotAns(countUnanswered);
-		result.setNetMarks(marks);
-		session.update(registration);
+		res.setRgtAns(countCorrect);
+		res.setWngAns(countWrong);
+		res.setNotAns(countUnanswered);
+		res.setNetMarks(marks);
+		session.update(res);
 		tx.commit();
 		session.close();
 		model.addObject("marks", marks);

@@ -26,16 +26,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class Commons {
 
 	@Autowired
-	@Qualifier(value="sessionFactory")
 	SessionFactory sessionFactory;
 	@Autowired
 	private Registration registered;
 	
 	@Autowired
 	Admin admin;
-	@Autowired
-	@Qualifier(value="sessionFactory2")
-	SessionFactory sessionFactory2;
 
 	// Index page controller.
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

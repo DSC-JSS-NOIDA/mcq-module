@@ -84,7 +84,7 @@
 						</c:otherwise>
 					</c:choose>
 
-					<h5>${questionlist.question}</h5>
+					<pre>${questionlist.question}</pre>
 					<h6>
 						<input type="radio" value="A" name="${nameid}"
 							onclick="changetabAttributes('${tabId}')" />

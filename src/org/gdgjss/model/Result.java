@@ -58,9 +58,4 @@ public class Result {
 		this.notAns = notAns;
 	}
 	
-	
-
-	
-	
-
 }

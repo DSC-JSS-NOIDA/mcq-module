@@ -27,7 +27,3 @@ public class SessionValidator extends HandlerInterceptorAdapter {
     }
 
 }
-//public class SessionValidator
-//{
-//	
-//}
