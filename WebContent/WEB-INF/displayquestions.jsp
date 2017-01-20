@@ -83,8 +83,9 @@
 							<div id=${fragmentid } class="ui-tabs-panel ui-tabs-hide">
 						</c:otherwise>
 					</c:choose>
-
-					<pre>${questionlist.question}</pre>
+					<h5 style="color:grey">Question</h5>
+					<p>${questionlist.question}</p>
+					<h6 style="color:grey">Options</h6>
 					<h6>
 						<input type="radio" value="A" name="${nameid}"
 							onclick="changetabAttributes('${tabId}')" />
@@ -100,7 +101,7 @@
 							onclick="changetabAttributes('${tabId}')" />
 						${questionlist.optionC}
 					</h6>
-					<h6>
+					<h6 style="padding-bottom: inherit;">
 						<input type="radio" value="D" name="${nameid}"
 							onclick="changetabAttributes('${tabId}')" />
 						${questionlist.optionD}

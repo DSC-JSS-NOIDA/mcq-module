@@ -2,13 +2,11 @@ package org.gdgjss.service;
 
 import javax.servlet.http.HttpSession;
 
-import org.gdgjss.adminpanel.*;
 import org.gdgjss.model.Registration;
 import org.gdgjss.model.Result;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +28,7 @@ public class Commons {
 	@Autowired
 	private Registration registered;
 	
-	@Autowired
-	Admin admin;
+	
 
 	// Index page controller.
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -50,18 +47,6 @@ public class Commons {
 		return model;
 	}
 	
-	//admin login page
-	@RequestMapping(value = "/gdgadmin", method = RequestMethod.GET)
-	public ModelAndView adminloginpage() {
-		ModelAndView model = new ModelAndView("adminLogin");
-		return model;
-	}
-	//admin login success
-	@RequestMapping(value = "/redirect", method = RequestMethod.POST)
-	public String redirect() {
-	     
-	      return "redirect:admin";
-	   }
 	
 
 	// Registration page controller

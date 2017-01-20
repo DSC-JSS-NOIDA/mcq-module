@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.stereotype.Repository;
 /**
  * Entity set : Questions to be displayed. 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Repository;
 @Entity
 public class Questions {
 	@Id
-	private int question_id;
+	private String questionId;
 	private String question;
 	private String optionA;
 	private String optionB;
@@ -23,12 +24,12 @@ public class Questions {
 	private String optionD;
 	private String answer;
 
-	public int getQuestion_id() {
-		return question_id;
+	public String getQuestionId() {
+		return questionId;
 	}
 
-	public void setQuestion_id(int question_id) {
-		this.question_id = question_id;
+	public void setQuestionId(String question_id) {
+		this.questionId = question_id;
 	}
 
 	public String getQuestion() {

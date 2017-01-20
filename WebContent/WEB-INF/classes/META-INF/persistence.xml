@@ -5,7 +5,7 @@
              version="1.0">
    <persistence-unit name="bookingDatabaseSuyash">
       <provider>org.hibernate.ejb.HibernatePersistence</provider>
-      <class>org.gdgjss.model.Questions</class>
+      
       <properties>
       	 <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 <!-- 	 <property name="hibernate.connection.username" value="root"/>
