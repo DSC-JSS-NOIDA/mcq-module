@@ -106,6 +106,12 @@ public class Commons {
 					httpSession.invalidate();
 					return new ModelAndView("galvatronIntercepter");
 				}
+				if(registered.isAttempt()==true)
+				{
+					model = new ModelAndView("index");
+					model.addObject("invalid", "Already a test submission has been made.");
+					return model;
+				}
 				registered = (Registration) httpSession.getAttribute("SESSION");
 				model = new ModelAndView("loginsuccess");
 				model.addObject("sessionName", registered.getName());

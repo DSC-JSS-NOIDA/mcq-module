@@ -62,6 +62,12 @@ public class SessionControlled {
 
 		List<Questions> ques = session.createCriteria(Questions.class).list();
 		cons= session.createCriteria(Constraints.class).list();
+		registration = (Registration) httpSession.getAttribute("SESSION");
+		Registration reg = (Registration) session.get(Registration.class, registration.getRollno());
+		session.beginTransaction();
+		reg.setAttempt(true);
+		session.save(reg);
+		session.getTransaction().commit();
 		session.close();
 		Collections.shuffle(ques);
 		int size = ques.size();
@@ -77,7 +83,6 @@ public class SessionControlled {
 		System.out.println( "yeah11"  +cons.get(0).getValue());
 		ModelAndView model = new ModelAndView("displayquestions");
 		int myhr = 0, mymin = 20, mysec = 0;
-		registration = (Registration) httpSession.getAttribute("SESSION");
 		model.addObject("sessionName", registration.getName());
 		model.addObject("sessionrollNo", registration.getRollno());
 		model.addObject("myhr", cons.get(3).getValue());
