@@ -11,23 +11,27 @@
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             
-            <!-- My Stuff -->
-            <title>GDG Assessment</title>
-            <link rel="stylesheet" type="text/css" href="static/css/style.css">
             <script type="text/javascript">
 			function formValidation()
 			{
-				var pass1 = document.getElementById("pass1").value;
-				var pass2 = document.getElementById("pass2").value;
-				if(pass1 != pass2)
+				var pass = (document.getElementById("pass").value).length;
+				var contact = (document.getElementById("contact").value).length;
+				if( pass < 6)
 				{
-					
-					alert('password not matched');
+					alert('Password length should be of atleast 6 characters.');
 					return false
 				}
+				if(contact != 10 || ( isNaN(document.getElementById("contact").value)) )
+					{
+					alert('Contact number should be of 10 digit.');
+					return false
+					}
 				return true;
 			}
 		</script>
+            <!-- My Stuff -->
+            <title>GDG Assessment</title>
+            <link rel="stylesheet" type="text/css" href="static/css/style.css">
         </head>
 
         <body id="background_indexpage">
@@ -49,7 +53,7 @@
                                         <div class="row">
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">person_pin</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="rollno" required />
+                                              <input id="icon_prefix" type="text" class="validate" name="rollno" placeholder="14IT037" required />
                                               <label for="icon_prefix">Roll Number</label>
                                             </div>
                                             <div class="input-field col s12">
@@ -92,33 +96,23 @@
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">assignment</i>
                                               <input id="icon_prefix" type="text" class="validate" name="branch" required />
-                                              <label for="icon_prefix">Trade</label>
+                                              <label for="icon_prefix">Branch</label>
                                             </div>
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">person_pin</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="rollno" required />
+                                              <input id="icon_prefix" type="text" class="validate" name="rollno" placeholder="14IT037" required />
                                               <label for="icon_prefix">Roll No</label>
                                             </div>
                                             <div class="input-field col s12">
-                                              <i class="material-icons prefix">airplay</i>
-                                              <input id="icon_prefix" type="text" class="validate" name="labno" required />
-                                              <label for="icon_prefix">Lab Number</label>
-                                            </div>
-                                            <div class="input-field col s12">
                                                 <i class="material-icons prefix">phone</i>
-                                                <input id="icon_telephone" type="tel" class="validate" name="contact" required />
+                                                <input id="contact" type="tel" class="validate" name="contact" required />
                                                 <label for="icon_telephone">Contact</label>
                                             </div>
                                             
                                             <div class="input-field col s12">
                                               <i class="material-icons prefix">lock_outline</i>
-                                              <input id="pass1" type="password" class="validate" name="pass" required />
+                                              <input id="pass" type="password" class="validate" name="pass" required />
                                               <label for="icon_telephone">Password</label>
-                                            </div>
-                                            <div class="input-field col s12">
-                                              <i class="material-icons prefix">lock</i>
-                                              <input id="pass2" type="password" class="validate" name="repassword" required />
-                                              <label for="icon_telephone">Re Enter Password</label>
                                             </div>
                                         </div>
                                         <input type="submit" value="SUBMIT" class="btn blue-grey darken-3" style="margin-left: 40%;">

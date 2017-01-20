@@ -28,10 +28,8 @@ public class Commons {
 	@Autowired
 	private Registration registered;
 	
-	
-
 	// Index page controller.
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView getadmissionform(HttpSession httpSession) {
 		/**
 		 * key attribute is set to check restart of test via back/front/refresh
@@ -59,6 +57,7 @@ public class Commons {
 		if(session.get(Registration.class, registration.getRollno()) == null)
 		{
 			session.beginTransaction();
+			registration.setAttempt(false);
 			session.save(registration);
 			result.setContact(registration.getContact());
 			result.setName(registration.getName());

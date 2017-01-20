@@ -20,11 +20,18 @@ public class Registration {
 	private String branch;
 	@Id
 	private String rollno;
-	private String labno;
 	private String contact;
 	private String email;
 	private String pass;
+	private boolean attempt;
 	
+	
+	public boolean isAttempt() {
+		return attempt;
+	}
+	public void setAttempt(boolean attempt) {
+		this.attempt = attempt;
+	}
 	public String getName() {
 		return name;
 	}
@@ -48,12 +55,6 @@ public class Registration {
 	}
 	public void setRollno(String rollno) {
 		this.rollno = rollno;
-	}
-	public String getLabno() {
-		return labno;
-	}
-	public void setLabno(String labno) {
-		this.labno = labno;
 	}
 	public String getContact() {
 		return contact;
