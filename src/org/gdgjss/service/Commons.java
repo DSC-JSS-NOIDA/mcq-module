@@ -2,6 +2,7 @@ package org.gdgjss.service;
 
 import javax.servlet.http.HttpSession;
 
+import org.gdgjss.model.Constraints;
 import org.gdgjss.model.Registration;
 import org.gdgjss.model.Result;
 import org.hibernate.Session;
@@ -29,7 +30,7 @@ public class Commons {
 	private Registration registered;
 	
 	// Index page controller.
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView getadmissionform(HttpSession httpSession) {
 		/**
 		 * key attribute is set to check restart of test via back/front/refresh
@@ -86,6 +87,8 @@ public class Commons {
 		ModelAndView model;
 		Session session = sessionFactory.openSession();
 		registered = (Registration) session.get(Registration.class, rollno);
+		Constraints constraints=(Constraints) session.get(Constraints.class,"rules");
+		System.out.println(constraints.getValue());
 		if (registered != null) {
 			if (registered.getPass().equals(password)) {
 				httpSession.setAttribute("SESSION", registered);
@@ -109,13 +112,14 @@ public class Commons {
 				if(registered.isAttempt()==true)
 				{
 					model = new ModelAndView("index");
-					model.addObject("invalid", "Already a test submission has been made.");
+					model.addObject("invalid", "A test submission has already been made on this roll number.");
 					return model;
 				}
 				registered = (Registration) httpSession.getAttribute("SESSION");
 				model = new ModelAndView("loginsuccess");
 				model.addObject("sessionName", registered.getName());
 				model.addObject("sessionrollNo", registered.getRollno());
+				model.addObject("rules",constraints.getValue());
 
 			} else {
 				model = new ModelAndView("index");

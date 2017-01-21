@@ -83,7 +83,7 @@
 							<div id=${fragmentid } class="ui-tabs-panel ui-tabs-hide">
 						</c:otherwise>
 					</c:choose>
-					<h5 style="color:grey">Question</h5>
+					<h6 style="color:grey">Question</h6>
 					<p>${questionlist.question}</p>
 					<h6 style="color:grey">Options</h6>
 					<h6>
