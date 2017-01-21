@@ -15,6 +15,7 @@
 				<updatePolicy>always</updatePolicy>
 			</releases>
 		</repository>
+
 		<repository>
 			<id>lightadmin-nexus-snapshots</id>
 			<url>http://lightadmin.org/nexus/content/repositories/snapshots</url>
@@ -24,12 +25,49 @@
 			</snapshots>
 		</repository>
 	</repositories>
-<dependencies>
-	<dependency>
-		<groupId>org.lightadmin</groupId>
-		<artifactId>lightadmin</artifactId>
-		<version>1.0.0.M2</version>
-	</dependency>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>3.2.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lightadmin</groupId>
+			<artifactId>lightadmin</artifactId>
+			<version>1.0.0.M2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
 	</dependencies>
 	<!-- <dependencies> <dependency> <groupId>org.lightadmin</groupId> <artifactId>lightadmin</artifactId> 
 		<version>1.2.0.RC1</version> </dependency> </dependencies> -->
