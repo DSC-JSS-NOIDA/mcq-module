@@ -80,6 +80,11 @@ public class SessionControlled {
 			solutions[seqOfQues] = getAnswers.getAnswer();
 			seqOfQues++;
 		}
+		for(int h=1;h<=5;h++)
+		{
+			System.out.println("suyash "+ solutions[h]);
+		}
+		System.out.println("tillu  "+ solutions.toString());
 		System.out.println( "yeah11"  +cons.get(0).getValue());
 		ModelAndView model = new ModelAndView("displayquestions");
 		int myhr = 0, mymin = 20, mysec = 0;
@@ -101,10 +106,13 @@ public class SessionControlled {
 			String nameid = "ques" + Integer.toString(j);
 			String participantSolution = request.getParameter(nameid);
 			if (participantSolution != null) {
-				if (solutions[j].equals(participantSolution)) {
+				
+				if (solutions[j].trim().equals(participantSolution)) {
+					System.out.println("hehe "+participantSolution+ "hehe "+ solutions[j] );
 					marks += Integer.parseInt(cons.get(1).getValue());
 					countCorrect += 1;
 				} else {
+					System.out.println("hehe wrongway "+participantSolution+ "hehe "+ solutions[j] );
 					marks -= Integer.parseInt(cons.get(0).getValue());
 					countWrong += 1;
 				}
