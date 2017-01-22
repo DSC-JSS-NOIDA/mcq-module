@@ -24,7 +24,7 @@
 		<h4>Rules For Test Session</h4>
 	</div>
 	<div id="rules-page"  class="rules">
-	<p>${rules}</p>
+	<p style="padding:10px;font-size:20px;">${rules}</p>
 	</div>
 	<div style="height: 60px;" id="header_footer">
 		<div align="center">
