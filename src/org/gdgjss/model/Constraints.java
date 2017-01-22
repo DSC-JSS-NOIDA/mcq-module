@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 public class Constraints {
 	@Id
 	private String field;
-	private String value;
+	private String data;
 	
 	public String getField() {
 		return field;
@@ -25,10 +25,10 @@ public class Constraints {
 		this.field = field;
 	}
 	public String getValue() {
-		return value;
+		return data;
 	}
 	public void setValue(String value) {
-		this.value = value;
+		this.data = value;
 	}
 	
 	

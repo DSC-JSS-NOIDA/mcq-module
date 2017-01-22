@@ -42,6 +42,7 @@ public class SessionControlled {
 
 	
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/sessionQuestionController", method = RequestMethod.POST)
 	public ModelAndView submitAdmissionForm(HttpSession httpSession) {
 		/**
@@ -80,10 +81,6 @@ public class SessionControlled {
 			solutions[seqOfQues] = getAnswers.getAnswer();
 			seqOfQues++;
 		}
-		for(int h=1;h<=5;h++)
-		{
-			System.out.println("suyash "+ solutions[h]);
-		}
 		System.out.println("tillu  "+ solutions.toString());
 		System.out.println( "yeah11"  +cons.get(0).getValue());
 		ModelAndView model = new ModelAndView("displayquestions");
@@ -108,11 +105,9 @@ public class SessionControlled {
 			if (participantSolution != null) {
 				
 				if (solutions[j].trim().equals(participantSolution)) {
-					System.out.println("hehe "+participantSolution+ "hehe "+ solutions[j] );
 					marks += Integer.parseInt(cons.get(1).getValue());
 					countCorrect += 1;
 				} else {
-					System.out.println("hehe wrongway "+participantSolution+ "hehe "+ solutions[j] );
 					marks -= Integer.parseInt(cons.get(0).getValue());
 					countWrong += 1;
 				}
