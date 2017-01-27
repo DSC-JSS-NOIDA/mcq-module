@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
+<link rel="shortcut icon" type="image/png" href="static/images/favicon.png">
 <link rel="stylesheet" href="static/css/materialize.css" type="text/css"
 	media="screen, projection" />
 	<title>Galvatron Intercepter</title>

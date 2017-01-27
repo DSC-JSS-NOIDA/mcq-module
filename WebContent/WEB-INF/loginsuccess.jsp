@@ -8,6 +8,7 @@
 %>
 <html>
 <head>
+<link rel="shortcut icon" type="image/png" href="static/images/favicon.png">
 <link rel="stylesheet" href="static/css/materialize.css" type="text/css"
 	media="screen, projection" />
 <link rel="stylesheet" href="static/css/style.css" type="text/css"

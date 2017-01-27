@@ -10,6 +10,7 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+<link rel="shortcut icon" type="image/png" href="static/images/favicon.png">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>GDG Assessment</title>
 <meta name="description" content="reverse clock plugin for jQuery.">
