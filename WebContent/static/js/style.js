@@ -5,7 +5,3 @@ function submitConfirm()
 	else
 		return false;
 }
-
-
-
-

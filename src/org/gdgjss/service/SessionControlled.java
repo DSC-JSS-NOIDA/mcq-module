@@ -81,8 +81,6 @@ public class SessionControlled {
 			solutions[seqOfQues] = getAnswers.getAnswer();
 			seqOfQues++;
 		}
-		System.out.println("tillu  "+ solutions.toString());
-		System.out.println( "yeah11"  +cons.get(0).getValue());
 		ModelAndView model = new ModelAndView("displayquestions");
 		int myhr = 0, mymin = 20, mysec = 0;
 		model.addObject("sessionName", registration.getName());
