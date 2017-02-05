@@ -15,6 +15,15 @@ public class Result {
 	private int rgtAns;
 	private int wngAns;
 	private int notAns;
+	private String Email;
+	
+	
+	public String getEmail() {
+		return Email;
+	}
+	public void setEmail(String email) {
+		Email = email;
+	}
 	public String getRollno() {
 		return rollno;
 	}

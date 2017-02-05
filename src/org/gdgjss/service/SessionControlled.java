@@ -1,5 +1,6 @@
 package org.gdgjss.service;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -33,6 +34,7 @@ public class SessionControlled {
 	private List<Constraints> cons;
 
 	private String solutions[];
+	private String suffId[];
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -76,9 +78,11 @@ public class SessionControlled {
 		 * Ignoring 0th position of array solution to sync the solution.
 		 */
 		solutions = new String[size + 1];
+		suffId= new String[size+1];
 		int seqOfQues = 1;
 		for (Questions getAnswers : ques) {
 			solutions[seqOfQues] = getAnswers.getAnswer();
+			suffId[seqOfQues]=getAnswers.getQuestionId()+" "+getAnswers.getOptionA();
 			seqOfQues++;
 		}
 		ModelAndView model = new ModelAndView("displayquestions");
@@ -102,12 +106,13 @@ public class SessionControlled {
 			String participantSolution = request.getParameter(nameid);
 			if (participantSolution != null) {
 				
-				if (solutions[j].trim().equals(participantSolution)) {
+				if ((solutions[j].trim()).equals(participantSolution)) {
 					marks += Integer.parseInt(cons.get(1).getValue());
 					countCorrect += 1;
 				} else {
 					marks -= Integer.parseInt(cons.get(0).getValue());
 					countWrong += 1;
+					System.out.println(participantSolution + " id is "+ nameid );
 				}
 
 			} else {
@@ -128,6 +133,9 @@ public class SessionControlled {
 		model.addObject("marks", marks);
 		model.addObject("sessionName", registration.getName());
 		httpSession.invalidate();
+		System.out.println(Arrays.toString(suffId));
+		System.out.println(Arrays.toString(solutions));
+
 		return model;
 	}
 

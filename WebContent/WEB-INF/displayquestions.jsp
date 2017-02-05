@@ -208,7 +208,7 @@
 
 	<script type="text/javascript">
 		function myFunction() {
-			alert("Time up !!! Your responses have been automatically submitted.");
+			alert("Time up !!! Click ok to automatically submit your responses.");
 			document.getElementById("myForm").submit();
 		}
 	</script>

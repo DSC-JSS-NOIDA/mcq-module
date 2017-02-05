@@ -67,6 +67,7 @@ public class Commons {
 			result.setRgtAns(0);
 			result.setWngAns(0);
 			result.setNotAns(0);
+			result.setEmail(registration.getEmail());
 			
 			session.save(result);
 			session.getTransaction().commit();
