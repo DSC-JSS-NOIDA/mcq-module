@@ -65,7 +65,7 @@
 	<form action="/gdgmcq/sessionSubmitSolution" method="post" , id="myForm"
 		onsubmit="return submitConfirm();">
 		<div id="page-wrap">
-			<div id="tabs">
+			<div id="tabs" style="font-size: 16px;">
 				<c:forEach var="questionlist" items="${ques}">
 					<%
 						String nameid = "ques" + Integer.toString(i);
